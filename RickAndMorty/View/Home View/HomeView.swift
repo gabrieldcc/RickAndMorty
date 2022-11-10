@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol HomeViewDelegate: AnyObject {
+    func showDetails()
+}
 final class HomeView: UIView {
     
     var mainData: MainData?
+    weak var delegate: HomeViewDelegate?
+    var selectedItem: Character?
+
+
     
     //MARK: - Init
     init() {
@@ -72,6 +79,9 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.showDetails()
+        //HomeViewController().showDetails()
+        selectedItem = mainData?.results[indexPath.row]
         
     }
     

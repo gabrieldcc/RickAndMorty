@@ -11,8 +11,6 @@ class HomeViewController: UIViewController {
     
     //MARK: - Let
     let containerView = HomeView()
-    var mainData: MainData?
-
     
     //MARK: - Lifecycle View
     override func loadView() {
@@ -21,23 +19,20 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            apiRequest()
-        print("teste \(mainData)")
+        containerView.delegate = self
     }
     
-    
-    //MARK: - API Call
-    func apiRequest() {
-       CharacterAPI.makeRequest { [weak self] mainData in
-           self?.mainData = mainData
-           
-       }
+}
+//MARK: - Navigation
+extension HomeViewController: HomeViewDelegate {
+    func showDetails() {
+        let controller = DetailViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
-    
-    }
-    
+}
 
-    
+
+
 
 
 

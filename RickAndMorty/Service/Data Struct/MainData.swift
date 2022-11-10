@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+// MARK: - Welcome
+struct MainData: Codable {
+    let info: Info
+    let results: [Character]
+}
