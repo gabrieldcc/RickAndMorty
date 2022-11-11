@@ -10,14 +10,13 @@ import UIKit
 protocol HomeViewDelegate: AnyObject {
     func showDetails()
 }
+
 final class HomeView: UIView {
     
     var mainData: MainData?
     weak var delegate: HomeViewDelegate?
     var selectedItem: Character?
 
-
-    
     //MARK: - Init
     init() {
         super.init(frame: .zero)
@@ -37,7 +36,6 @@ final class HomeView: UIView {
            self.tableView.reloadData()
        }
     }
-    
 
     
     //MARK: - Visual Components
@@ -52,8 +50,6 @@ final class HomeView: UIView {
     }()
 
 }
-
-
 
     //MARK: - TableView
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
@@ -80,12 +76,11 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.showDetails()
-        //HomeViewController().showDetails()
-        selectedItem = mainData?.results[indexPath.row]
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
             return HomeTableViewCell.cellSize
         }
     

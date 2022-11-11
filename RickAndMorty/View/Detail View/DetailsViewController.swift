@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailsViewController: UIViewController {
     
     //MARK: - Let
-    let containerView = DetailView()
+    let containerView = DetailsView()
     var mainData: MainData?
     
     

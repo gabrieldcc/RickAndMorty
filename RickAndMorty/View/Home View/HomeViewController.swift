@@ -26,9 +26,11 @@ class HomeViewController: UIViewController {
 //MARK: - Navigation
 extension HomeViewController: HomeViewDelegate {
     func showDetails() {
-        let controller = DetailViewController()
+        let controller = DetailsViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
 }
 
 

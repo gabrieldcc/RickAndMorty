@@ -7,14 +7,17 @@
 
 import UIKit
 
-final class DetailView: UIView {
+final class DetailsView: UIView {
     
     var selectItem: MainData?
+    var homeView = HomeView()
+    var selectedCharacter: Character?
+    private let labelTextColor: UIColor = .white
     
     //MARK: - Init
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .blue
+        self.backgroundColor = .black
         setupView()
     }
     
@@ -38,7 +41,7 @@ final class DetailView: UIView {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.image = UIImage(named: "loading")
-        element.tintColor = .blue
+        element.tintColor = .black
         element.layer.cornerRadius = 25
         element.layer.masksToBounds = true
         
@@ -52,13 +55,16 @@ final class DetailView: UIView {
         element.alignment = .leading
         element.distribution = .fill
         element.spacing = 4
-        element.backgroundColor = .darkGray
+        element.backgroundColor = .black
         element.layer.cornerRadius = 10
         element.layer.masksToBounds = true
+        element.layer.borderColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
+        element.layer.borderWidth = 1
         
         return element
     }()
     
+    //MARK: - Title Labels
     private lazy var titleLabelsVStack: UIStackView = {
         let element = UIStackView(frame: .zero)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -66,35 +72,18 @@ final class DetailView: UIView {
         element.alignment = .leading
         element.distribution = .fill
         element.spacing = 4
-        element.backgroundColor = .darkGray
-        element.layer.cornerRadius = 10
-        element.layer.masksToBounds = true
+        element.backgroundColor = .black
         
         return element
     }()
     
-    
-    private lazy var dinamicLabelsVStack: UIStackView = {
-        let element = UIStackView(frame: .zero)
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.axis = .vertical
-        element.alignment = .leading
-        element.distribution = .fill
-        element.spacing = 4
-        element.backgroundColor = .darkGray
-        element.layer.cornerRadius = 10
-        element.layer.masksToBounds = true
-        
-        return element
-    }()
-    
-    //MARK: - Title Labels
     lazy var nameLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.text = "Name"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
         
         return element
     }()
@@ -105,6 +94,8 @@ final class DetailView: UIView {
         element.text = "status"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
+
         
         return element
     }()
@@ -115,6 +106,8 @@ final class DetailView: UIView {
         element.text = "species"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
+
         
         return element
     }()
@@ -125,6 +118,8 @@ final class DetailView: UIView {
         element.text = "gender"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
+
         
         return element
     }()
@@ -135,6 +130,8 @@ final class DetailView: UIView {
         element.text = "origin"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
+
         
         return element
     }()
@@ -145,17 +142,32 @@ final class DetailView: UIView {
         element.text = "lastSeenIn"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
+
         
         return element
     }()
     
     //MARK: - Dinamic Labels
+    private lazy var dinamicLabelsVStack: UIStackView = {
+        let element = UIStackView(frame: .zero)
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.axis = .vertical
+        element.alignment = .leading
+        element.distribution = .fill
+        element.spacing = 4
+        element.backgroundColor = .black
+        
+        return element
+    }()
+    
     lazy var nameDinamicLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.text = "Name"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
         
         return element
     }()
@@ -166,7 +178,8 @@ final class DetailView: UIView {
         element.text = "status"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
-        
+        element.textColor = labelTextColor
+
         return element
     }()
     
@@ -176,7 +189,8 @@ final class DetailView: UIView {
         element.text = "species"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
-        
+        element.textColor = labelTextColor
+
         return element
     }()
     
@@ -186,6 +200,7 @@ final class DetailView: UIView {
         element.text = "gender"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
         
         return element
     }()
@@ -196,6 +211,7 @@ final class DetailView: UIView {
         element.text = "origin"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
         
         return element
     }()
@@ -206,13 +222,19 @@ final class DetailView: UIView {
         element.text = "lastSeenIn"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
+        element.textColor = labelTextColor
         
         return element
     }()
     
+//     func updateLabels(character: Character) {
+//
+//         nameDinamicLabel.text = character.name
+//    }
+    
 }
 //MARK: - ViewCodable
-extension DetailView: ViewCodable {
+extension DetailsView: ViewCodable {
     func buildHierarchy() {
         addSubview(container)
         container.addArrangedSubview(characterImage)
@@ -237,7 +259,7 @@ extension DetailView: ViewCodable {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: topAnchor, constant: 80),
+            container.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
             container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             
@@ -245,7 +267,15 @@ extension DetailView: ViewCodable {
             characterImage.heightAnchor.constraint(equalToConstant: 400),
             
             nameLabel.widthAnchor.constraint(equalToConstant: 100),
-            nameDinamicLabel.widthAnchor.constraint(equalToConstant: 220)
+            nameDinamicLabel.widthAnchor.constraint(equalToConstant: 220),
+            
+            titleLabelsVStack.leadingAnchor.constraint(equalTo: containerLabelsHStack.leadingAnchor, constant: 8),
+            titleLabelsVStack.topAnchor.constraint(equalTo: containerLabelsHStack.topAnchor, constant: 8),
+            titleLabelsVStack.bottomAnchor.constraint(equalTo: containerLabelsHStack.bottomAnchor, constant: -8),
+            
+            dinamicLabelsVStack.trailingAnchor.constraint(equalTo: containerLabelsHStack.trailingAnchor, constant: -8),
+            dinamicLabelsVStack.topAnchor.constraint(equalTo: containerLabelsHStack.topAnchor, constant: 8),
+            dinamicLabelsVStack.bottomAnchor.constraint(equalTo: containerLabelsHStack.bottomAnchor, constant: -8),
             
 
         ])
