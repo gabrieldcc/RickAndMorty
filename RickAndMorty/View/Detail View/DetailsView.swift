@@ -9,9 +9,12 @@ import UIKit
 
 final class DetailsView: UIView {
     
+    //MARK: - Var
     var selectItem: MainData?
     var homeView = HomeView()
-    var selectedCharacter: Character?
+    //var selectedCharacter: Character?
+    
+    //MARK: - Let
     private let labelTextColor: UIColor = .white
     
     //MARK: - Init
@@ -91,11 +94,10 @@ final class DetailsView: UIView {
     lazy var statusLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "status"
+        element.text = "Status"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         
         return element
     }()
@@ -103,11 +105,10 @@ final class DetailsView: UIView {
     lazy var speciesLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "species"
+        element.text = "Species"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         
         return element
     }()
@@ -115,23 +116,21 @@ final class DetailsView: UIView {
     lazy var genderLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "gender"
+        element.text = "Gender"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
 
-        
         return element
     }()
     
     lazy var originLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "origin"
+        element.text = "Origin"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         
         return element
     }()
@@ -139,12 +138,11 @@ final class DetailsView: UIView {
     lazy var lastSeenInLabel: UILabel = {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "lastSeenIn"
+        element.text = "Last seen in"
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
 
-        
         return element
     }()
     
@@ -227,10 +225,10 @@ final class DetailsView: UIView {
         return element
     }()
     
-//     func updateLabels(character: Character) {
-//
-//         nameDinamicLabel.text = character.name
-//    }
+    func updateLabels(character: Character) {
+
+        nameDinamicLabel.text = character.name
+    }
     
 }
 //MARK: - ViewCodable
@@ -276,8 +274,6 @@ extension DetailsView: ViewCodable {
             dinamicLabelsVStack.trailingAnchor.constraint(equalTo: containerLabelsHStack.trailingAnchor, constant: -8),
             dinamicLabelsVStack.topAnchor.constraint(equalTo: containerLabelsHStack.topAnchor, constant: 8),
             dinamicLabelsVStack.bottomAnchor.constraint(equalTo: containerLabelsHStack.bottomAnchor, constant: -8),
-            
-
         ])
     }
     

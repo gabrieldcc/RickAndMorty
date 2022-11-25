@@ -7,20 +7,26 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
+    
+    //MARK: - Var
+    var character: Character?
     
     //MARK: - Let
-    let containerView = DetailsView()
-    var mainData: MainData?
+    private let containerView = DetailsView()
     
-    
-    //MARK: - Lifecycle View
+    //MARK: - Init
+
+    //MARK: -  View Lifecycle
     override func loadView() {
         self.view = containerView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerView.nameDinamicLabel.text = character?.name
+        containerView.genderDinamicLabel.text = character?.gender.rawValue
     }
+
     
 }

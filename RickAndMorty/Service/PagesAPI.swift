@@ -1,13 +1,13 @@
 //
-//  Service.swift
+//  PagesAPI.swift
 //  RickAndMorty
 //
-//  Created by Gabriel de Castro Chaves on 03/11/22.
+//  Created by Gabriel de Castro Chaves on 18/11/22.
 //
 
 import Foundation
 
-class CharacterAPI {
+class PagesAPI {
     
     class func makeRequest(completion: @escaping (MainData) -> ()) {
         guard let url = URL(string: "https://rickandmortyapi.com/api/character") else { return }
@@ -28,5 +28,5 @@ class CharacterAPI {
     }
 }
 
-
-
+// Criar uma nova chamada passando o numero da pagina
+//adicionar os persongens no array de results
