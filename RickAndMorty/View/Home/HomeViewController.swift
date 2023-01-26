@@ -7,10 +7,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+protocol HomeViewControllerProtocol: AnyObject {
+    func show(from: UIViewController, character: Character)
+}
+
+final class HomeViewController: UIViewController {
     
     var mainData: MainData?
     var numberOfPages = 1
+    private let router: HomeViewControllerProtocol = HomeViewRouter()
     
     //MARK: - Let
     let containerView = HomeView()
@@ -25,6 +30,7 @@ class HomeViewController: UIViewController {
         containerView.tableView.delegate = self
         containerView.tableView.dataSource = self
         apiRequest()
+        view.backgroundColor = .black
     }
     
     //MARK: - API Request
@@ -35,7 +41,6 @@ class HomeViewController: UIViewController {
             self.containerView.tableView.reloadData()
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,12 +51,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             numberOfPages += 1
             apiRequest()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let character = self.mainData?.results[indexPath.row] else { return }
-        showDetails(character: character)
+        router.show(from: self, character: character)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,24 +75,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.specieLabel.text = mainData?.species.rawValue
         cell.genderLabel.text = mainData?.gender.rawValue
         
+        cell.nameLabel.textColor = .white
+        cell.statusLabel.textColor = .white
+        cell.specieLabel.textColor = .white
+        cell.genderLabel.textColor = .white
+        
+        cell.backgroundColor = .black
+        
         return cell
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return HomeTableViewCell.cellSize
-    }
-    
-}
-
-    //MARK: - Navigation
-extension HomeViewController {
-    func showDetails(character: Character) {
-        let controller = DetailsViewController()
-        controller.character = character
-        navigationController?.pushViewController(controller, animated: true)
     }
     
 }
