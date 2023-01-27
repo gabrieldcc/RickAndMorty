@@ -234,29 +234,47 @@ final class DetailsView: UIView {
         print("IMAGE ---->\(String(describing: characterImage.image))")
     }
     
+    
+    
 }
 //MARK: - ViewCodable
-extension DetailsView: ViewCodable {
+extension DetailsView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(container)
-        container.addArrangedSubview(characterImage)
-        container.addArrangedSubview(containerLabelsHStack)
-        containerLabelsHStack.addArrangedSubview(titleLabelsVStack)
-        containerLabelsHStack.addArrangedSubview(dinamicLabelsVStack)
-
-        titleLabelsVStack.addArrangedSubview(nameLabel)
-        titleLabelsVStack.addArrangedSubview(statusLabel)
-        titleLabelsVStack.addArrangedSubview(speciesLabel)
-        titleLabelsVStack.addArrangedSubview(genderLabel)
-        titleLabelsVStack.addArrangedSubview(originLabel)
-        titleLabelsVStack.addArrangedSubview(lastSeenInLabel)
         
-        dinamicLabelsVStack.addArrangedSubview(nameDinamicLabel)
-        dinamicLabelsVStack.addArrangedSubview(statusDinamicLabel)
-        dinamicLabelsVStack.addArrangedSubview(speciesDinamicLabel)
-        dinamicLabelsVStack.addArrangedSubview(genderDinamicLabel)
-        dinamicLabelsVStack.addArrangedSubview(originDinamicLabel)
-        dinamicLabelsVStack.addArrangedSubview(lastSeenInDinamicLabel)
+        ViewCodable.addArrangedSubviews(
+            stackView: container,
+            subviews: [characterImage, containerLabelsHStack]
+        )
+        
+        ViewCodable.addArrangedSubviews(
+            stackView: containerLabelsHStack,
+            subviews: [titleLabelsVStack, dinamicLabelsVStack]
+        )
+        
+        ViewCodable.addArrangedSubviews(
+            stackView: titleLabelsVStack,
+            subviews: [
+                nameLabel,
+                statusLabel,
+                speciesLabel,
+                genderLabel,
+                originLabel,
+                lastSeenInLabel
+            ]
+        )
+        
+        ViewCodable.addArrangedSubviews(
+            stackView: dinamicLabelsVStack,
+            subviews: [
+                nameDinamicLabel,
+                statusDinamicLabel,
+                speciesDinamicLabel,
+                genderDinamicLabel,
+                originDinamicLabel,
+                lastSeenInDinamicLabel
+            ]
+        )
     }
     
     func setupConstraints() {

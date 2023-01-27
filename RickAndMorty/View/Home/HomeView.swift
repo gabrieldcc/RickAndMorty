@@ -36,7 +36,7 @@ final class HomeView: UIView {
 }
 
     //MARK: - ViewCodable
-extension HomeView: ViewCodable {
+extension HomeView: ViewCodableProtocol {
     
     func buildHierarchy() {
         addSubview(tableView)

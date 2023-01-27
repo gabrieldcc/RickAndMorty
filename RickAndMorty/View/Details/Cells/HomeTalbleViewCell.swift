@@ -102,7 +102,7 @@ class HomeTableViewCell: UITableViewCell {
     
 }
 
-extension HomeTableViewCell: ViewCodable {
+extension HomeTableViewCell: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(container)
         container.addArrangedSubview(characterImage)

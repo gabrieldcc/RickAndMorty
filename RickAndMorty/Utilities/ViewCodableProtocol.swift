@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
-public protocol ViewCodable {
+public protocol ViewCodableProtocol {
     func buildHierarchy()
     func setupConstraints()
     func applyAdditionalChanges()
 }
 
-public extension ViewCodable {
+public extension ViewCodableProtocol {
     func setupView() {
         buildHierarchy()
         setupConstraints()
@@ -21,4 +22,12 @@ public extension ViewCodable {
     }
 
     func applyAdditionalChanges() {}
+}
+
+class ViewCodable {
+    class func addArrangedSubviews(stackView: UIStackView, subviews: [UIView]) {
+        for view in subviews {
+            stackView.addArrangedSubview(view)
+        }
+    }
 }
