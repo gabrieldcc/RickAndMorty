@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func successfullLogin()
+}
+
 final class LoginViewController: UIViewController {
     
     //MARK: - Let
     let containerView = LoginView()
+    weak var delegate: LoginViewControllerDelegate?
     
     //MARK: - Lifecycle View
     override func loadView() {
         self.view = containerView
     }
     
-    
+    //TODO: 
+    func tapButton() {
+        delegate?.successfullLogin()
+    }
 }

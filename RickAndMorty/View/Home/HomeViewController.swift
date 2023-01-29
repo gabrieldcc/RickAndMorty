@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol HomeViewControllerProtocol: AnyObject {
-    func show(from: UIViewController, character: Character)
+protocol HomeViewControllerDelegate: AnyObject {
+    func show(character: Character)
 }
 
 final class HomeViewController: UIViewController {
+
+    //MARK: - Attributes
+    let containerView = HomeView()
     
     var mainData: MainData?
     var numberOfPages = 1
-    private let router: HomeViewControllerProtocol = HomeViewRouter()
-    
-    //MARK: - Let
-    let containerView = HomeView()
+    weak var delegate: HomeViewControllerDelegate?
     
     //MARK: - Lifecycle View
     override func loadView() {
@@ -55,7 +55,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let character = self.mainData?.results[indexPath.row] else { return }
-        router.show(from: self, character: character)
+        delegate?.show(character: character)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

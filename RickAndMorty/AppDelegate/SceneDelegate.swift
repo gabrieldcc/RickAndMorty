@@ -10,16 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var appRouter: AppRouter?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)
-        let root = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: root)
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        appRouter = AppRouter(window: window ?? UIWindow())
+        appRouter?.setRootViewController()
     }
-
 }
 
