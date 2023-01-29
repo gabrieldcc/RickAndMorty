@@ -14,6 +14,7 @@
 		655D026F2985510500AEEEF0 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655D026E2985510500AEEEF0 /* Storyboard.storyboard */; };
 		655D027129856F4B00AEEEF0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655D027029856F4B00AEEEF0 /* UIView+.swift */; };
 		656B2F852986923B004D0586 /* UIButtonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F842986923B004D0586 /* UIButtonDefault.swift */; };
+		656B2F8729869D3B004D0586 /* UILabelDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F8629869D3B004D0586 /* UILabelDefault.swift */; };
 		852289BB295B38DB00822216 /* HomeViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeViewRouter.swift */; };
 		85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9229537FC1009BEE15 /* AppDelegate.swift */; };
 		85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9429537FC1009BEE15 /* SceneDelegate.swift */; };
@@ -62,6 +63,7 @@
 		655D026E2985510500AEEEF0 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		655D027029856F4B00AEEEF0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		656B2F842986923B004D0586 /* UIButtonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonDefault.swift; sourceTree = "<group>"; };
+		656B2F8629869D3B004D0586 /* UILabelDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelDefault.swift; sourceTree = "<group>"; };
 		852289BA295B38DB00822216 /* HomeViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRouter.swift; sourceTree = "<group>"; };
 		85EACB8F29537FC1009BEE15 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EACB9229537FC1009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				656B2F842986923B004D0586 /* UIButtonDefault.swift */,
+				656B2F8629869D3B004D0586 /* UILabelDefault.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				653B2F512983473500297AAB /* LoginViewController.swift in Sources */,
 				85EACBD229538485009BEE15 /* PagesAPI.swift in Sources */,
 				85EACBE52954BACB009BEE15 /* DetailsViewController.swift in Sources */,
+				656B2F8729869D3B004D0586 /* UILabelDefault.swift in Sources */,
 				656B2F852986923B004D0586 /* UIButtonDefault.swift in Sources */,
 				655D026D29845E7300AEEEF0 /* LoginRouter.swift in Sources */,
 				85EACBDB2953868B009BEE15 /* Info.swift in Sources */,

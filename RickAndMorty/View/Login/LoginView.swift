@@ -103,13 +103,8 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var loginLabel: UILabel = {
-        let element = UILabel()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "Login"
-        element.font = UIFont.boldSystemFont(ofSize: 16)
-        element.textAlignment = .left
-        element.textColor = .white
+    private lazy var loginLabel: UILabelDefault = {
+        let element = UILabelDefault(text: "Login")
         
         return element
     }()
@@ -127,13 +122,8 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var passwordLabel: UILabel = {
-        let element = UILabel()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "Senha"
-        element.font = UIFont.boldSystemFont(ofSize: 16)
-        element.textAlignment = .left
-        element.textColor = .white
+    private lazy var passwordLabel: UILabelDefault = {
+        let element = UILabelDefault(text: "Senha")
         
         return element
     }()
