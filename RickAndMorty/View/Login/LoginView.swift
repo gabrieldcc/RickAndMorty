@@ -109,15 +109,8 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var loginTextField: UITextField = {
-        let element = UITextField()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = UIFont.boldSystemFont(ofSize: 16)
-        element.textAlignment = .left
-        element.textColor = .black
-        element.placeholder = "  Digite seu login"
-        element.backgroundColor = .white
-        element.layer.cornerRadius = 10
+    private lazy var loginTextField: UITextFieldDefault = {
+        let element = UITextFieldDefault(placeholder: "  Digite seu login")
         
         return element
     }()
@@ -129,14 +122,8 @@ final class LoginView: UIView {
     }()
     
     private lazy var passwordTextField: UITextField = {
-        let element = UITextField()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.font = UIFont.boldSystemFont(ofSize: 16)
-        element.textAlignment = .left
-        element.textColor = .black
-        element.placeholder = "  Digite sua senha"
-        element.backgroundColor = .white
-        element.layer.cornerRadius = 10
+        let element = UITextFieldDefault(placeholder: "  Digite sua senha")
+        
         
         return element
     }()
