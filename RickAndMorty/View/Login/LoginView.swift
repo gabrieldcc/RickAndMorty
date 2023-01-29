@@ -151,13 +151,8 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var loginButton: UIButton = {
-        let element = UIButton()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = .green
-        element.layer.cornerRadius = 10
-        element.setTitle("Login", for: .normal)
-        element.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+    private lazy var loginButton: UIButtonDefault = {
+        let element = UIButtonDefault(title: "Login")
         
         return element
     }()
