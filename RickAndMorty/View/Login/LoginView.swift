@@ -13,7 +13,7 @@ import UIKit
 final class LoginView: UIView {
     
     //MARK: - Var
-    var loginView: LoginViewController?
+    var loginViewController: LoginViewController?
     
     //MARK: - Init
     init() {
@@ -49,13 +49,14 @@ final class LoginView: UIView {
     
     private lazy var backgroundVStack: UIStackView = {
         let element = UIStackView(frame: .zero)
+        let green: CGColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.axis = .vertical
         element.spacing = 10
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
         element.layer.masksToBounds = true
-        element.layer.borderColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
+        element.layer.borderColor =  green
         element.layer.borderWidth = 1
         
         return element
@@ -123,16 +124,24 @@ final class LoginView: UIView {
     
     private lazy var passwordTextField: UITextField = {
         let element = UITextFieldDefault(placeholder: "  Digite sua senha")
-        
-        
+    
         return element
     }()
     
     private lazy var loginButton: UIButtonDefault = {
-        let element = UIButtonDefault(title: "Login")
-        
+        let element = UIButtonDefault(
+            title: "Login",
+            target: self,
+            selector: #selector(targetLoginButton),
+            forEvent: .touchUpInside
+        )
         return element
     }()
+    
+    @objc func targetLoginButton() {
+        loginViewController?.tapButton()
+    }
+    
 }
 
 //MARK: - ViewCodable
@@ -248,9 +257,18 @@ extension LoginView: ViewCodableProtocol {
             passwordTextField.heightAnchor.constraint(equalToConstant: defaultSize),
             
             loginButton.heightAnchor.constraint(equalToConstant: defaultSize),
-            loginButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: defaultSize),
-            loginButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: defaultSizeN),
-            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: defaultSizeN)
+            loginButton.leadingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.leadingAnchor,
+                constant: defaultSize
+            ),
+            loginButton.trailingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.trailingAnchor,
+                constant: defaultSizeN
+            ),
+            loginButton.bottomAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.bottomAnchor,
+                constant: defaultSizeN
+            )
         ])
     }
 }

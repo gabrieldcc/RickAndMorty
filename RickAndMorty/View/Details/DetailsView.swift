@@ -79,13 +79,19 @@ final class DetailsView: UIView {
         return element
     }()
     
-    lazy var nameLabel: UILabel = {
-        let element = UILabel()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.text = "Name"
-        element.font = UIFont.boldSystemFont(ofSize: 16)
-        element.textAlignment = .left
-        element.textColor = labelTextColor
+//    lazy var nameLabel: UILabel = {
+//        let element = UILabel()
+//        element.translatesAutoresizingMaskIntoConstraints = false
+//        element.text = "Name"
+//        element.font = UIFont.boldSystemFont(ofSize: 16)
+//        element.textAlignment = .left
+//        element.textColor = labelTextColor
+//        
+//        return element
+//    }()
+    
+    lazy var nameLabel: UILabelDefault = {
+        let element = UILabelDefault(text: "Name")
         
         return element
     }()
