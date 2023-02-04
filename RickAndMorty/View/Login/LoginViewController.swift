@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: AnyObject {
-    func successfullLogin()
+    func validateUserLogin(loginInputed: UserLogin) -> Bool
 }
 
 final class LoginViewController: UIViewController {
@@ -24,6 +24,6 @@ final class LoginViewController: UIViewController {
     
     //TODO: 
     func tapButton() {
-        delegate?.successfullLogin()
+        
     }
 }

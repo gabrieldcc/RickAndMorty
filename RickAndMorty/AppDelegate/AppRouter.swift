@@ -12,7 +12,7 @@ class AppRouter {
     
     var window: UIWindow
     var loginRouter: LoginRouter?
-    var homeRouter: HomeViewRouter?
+    var homeRouter: HomeRouter?
     
     init(window: UIWindow) {
         self.window = window
@@ -28,7 +28,7 @@ class AppRouter {
     }
     
     func setHomeRouter() {
-        homeRouter = HomeViewRouter(window: window)
+        homeRouter = HomeRouter(window: window)
         homeRouter?.setRootViewController()
     }
 }

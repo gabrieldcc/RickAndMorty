@@ -9,7 +9,7 @@ import Foundation
 
 class LoginInteractor {
     
-    var logins: [UserLogin] = []
+    var logins: [UserLogin] = [UserLogin(login: "Gabrieldcc", password: "Gabriel98$")]
     
     
     func validateUserLogin(loginInputed: UserLogin) -> Bool {

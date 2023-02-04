@@ -17,7 +17,7 @@
 		656B2F8929869E5B004D0586 /* UITextFieldDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F8829869E5B004D0586 /* UITextFieldDefault.swift */; };
 		656B2F8B298EC253004D0586 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F8A298EC253004D0586 /* LoginInteractor.swift */; };
 		656B2F8D298EC2D4004D0586 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F8C298EC2D4004D0586 /* UserLogin.swift */; };
-		852289BB295B38DB00822216 /* HomeViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeViewRouter.swift */; };
+		852289BB295B38DB00822216 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeRouter.swift */; };
 		85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9229537FC1009BEE15 /* AppDelegate.swift */; };
 		85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9429537FC1009BEE15 /* SceneDelegate.swift */; };
 		85EACB9729537FC1009BEE15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9629537FC1009BEE15 /* HomeViewController.swift */; };
@@ -68,7 +68,7 @@
 		656B2F8829869E5B004D0586 /* UITextFieldDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldDefault.swift; sourceTree = "<group>"; };
 		656B2F8A298EC253004D0586 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		656B2F8C298EC2D4004D0586 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
-		852289BA295B38DB00822216 /* HomeViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRouter.swift; sourceTree = "<group>"; };
+		852289BA295B38DB00822216 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		85EACB8F29537FC1009BEE15 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EACB9229537FC1009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EACB9429537FC1009BEE15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				85EACBCD2953842C009BEE15 /* Request */,
 				85EACB9629537FC1009BEE15 /* HomeViewController.swift */,
 				85EACBC829538390009BEE15 /* HomeView.swift */,
-				852289BA295B38DB00822216 /* HomeViewRouter.swift */,
+				852289BA295B38DB00822216 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				85EACBEC2954BB4F009BEE15 /* ViewCodableProtocol.swift in Sources */,
 				656B2F8929869E5B004D0586 /* UITextFieldDefault.swift in Sources */,
 				85EACBCC295383CE009BEE15 /* HomeTalbleViewCell.swift in Sources */,
-				852289BB295B38DB00822216 /* HomeViewRouter.swift in Sources */,
+				852289BB295B38DB00822216 /* HomeRouter.swift in Sources */,
 				655D027129856F4B00AEEEF0 /* UIView+.swift in Sources */,
 				85EACBE32954BAC0009BEE15 /* DetailsView.swift in Sources */,
 				85EACBCF29538446009BEE15 /* CharacterAPI.swift in Sources */,

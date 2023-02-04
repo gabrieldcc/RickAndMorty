@@ -4,8 +4,6 @@
 //
 //  Created by Gabriel de Castro Chaves on 26/01/23.
 
-// imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-//imageView.transform = CGAffineTransform.identity
 
 import Foundation
 import UIKit
@@ -14,6 +12,7 @@ final class LoginView: UIView {
     
     //MARK: - Var
     var loginViewController: LoginViewController?
+    var loginInteractor = LoginInteractor()
     
     //MARK: - Init
     init() {
@@ -139,12 +138,18 @@ final class LoginView: UIView {
     }()
     
     @objc func targetLoginButton() {
-        LoginViewController().tapButton()
-        print("button taped")
         let login = loginTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let user = UserLogin(login: login, password: password)
+        let isValidUser = loginInteractor.validateUserLogin(loginInputed: user)
+        
+        if isValidUser {
+            //TODO: call HomeViewController
+        } else {
+            print("User is invalid")
+        }
     }
+    
     
 }
 

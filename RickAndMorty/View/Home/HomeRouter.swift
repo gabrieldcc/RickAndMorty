@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HomeViewRouter {
+class HomeRouter {
     
     var window: UIWindow?
     var homeViewController: HomeViewController?
@@ -33,7 +33,7 @@ class HomeViewRouter {
     }
 }
 
-extension HomeViewRouter: HomeViewControllerDelegate {
+extension HomeRouter: HomeViewControllerDelegate {
     func show(character: Character) {
         showDetails(of: character)
     }
