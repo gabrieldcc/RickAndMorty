@@ -139,7 +139,11 @@ final class LoginView: UIView {
     }()
     
     @objc func targetLoginButton() {
-        loginViewController?.tapButton()
+        LoginViewController().tapButton()
+        print("button taped")
+        let login = loginTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let user = UserLogin(login: login, password: password)
     }
     
 }
