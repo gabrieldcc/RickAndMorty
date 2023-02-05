@@ -104,26 +104,30 @@ final class LoginView: UIView {
     }()
     
     private lazy var loginLabel: UILabelDefault = {
-        let element = UILabelDefault(text: "Login")
-        
+        let element = UILabelDefault(
+            text: "Login"
+        )
         return element
     }()
     
     private lazy var loginTextField: UITextFieldDefault = {
-        let element = UITextFieldDefault(placeholder: "  Digite seu login")
-        
+        let element = UITextFieldDefault(
+            placeholder: "  Digite seu login"
+        )
         return element
     }()
     
     private lazy var passwordLabel: UILabelDefault = {
-        let element = UILabelDefault(text: "Senha")
-        
+        let element = UILabelDefault(
+            text: "Senha"
+        )
         return element
     }()
     
     private lazy var passwordTextField: UITextField = {
-        let element = UITextFieldDefault(placeholder: "  Digite sua senha")
-    
+        let element = UITextFieldDefault(
+            placeholder: "  Digite sua senha"
+        )
         return element
     }()
     

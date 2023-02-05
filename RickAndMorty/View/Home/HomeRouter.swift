@@ -14,20 +14,23 @@ class HomeRouter {
     var homeViewController: HomeViewController?
     var navigationController: UINavigationController?
     
-     init(window: UIWindow) {
+    init(window: UIWindow) {
         self.window = window
     }
     
-     func showDetails(of character: Character) {
+    func showDetails(of character: Character) {
         let controller = DetailsViewController()
         controller.character = character
-        navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller,
+                                                 animated: true)
     }
     
     func setRootViewController() {
         homeViewController = HomeViewController()
         homeViewController?.delegate = self
-        navigationController = UINavigationController(rootViewController: homeViewController ?? UIViewController())
+        navigationController = UINavigationController(
+            rootViewController: homeViewController ?? UIViewController()
+        )
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

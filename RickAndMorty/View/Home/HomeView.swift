@@ -29,13 +29,15 @@ final class HomeView: UIView {
     lazy var tableView: UITableView = {
         let component = UITableView()
         component.translatesAutoresizingMaskIntoConstraints = false
-        component.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
-        
+        component.register(
+            HomeTableViewCell.self,
+            forCellReuseIdentifier: HomeTableViewCell.identifier
+        )
         return component
     }()
 }
 
-    //MARK: - ViewCodable
+//MARK: - ViewCodable
 extension HomeView: ViewCodableProtocol {
     
     func buildHierarchy() {
@@ -44,10 +46,18 @@ extension HomeView: ViewCodableProtocol {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            tableView.topAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.topAnchor
+            ),
+            tableView.leadingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.leadingAnchor
+            ),
+            tableView.trailingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.trailingAnchor
+            ),
+            tableView.bottomAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.bottomAnchor
+            )
         ])
     }
 }
