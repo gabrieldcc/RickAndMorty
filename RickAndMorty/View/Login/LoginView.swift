@@ -138,13 +138,19 @@ final class LoginView: UIView {
     }()
     
     @objc func targetLoginButton() {
+       
+    }
+}
+
+extension LoginView: LoginRouterDelegate {
+    func successfullLogin() {
         let login = loginTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let user = UserLogin(login: login, password: password)
         let isValidUser = loginInteractor.validateUserLogin(loginInputed: user)
         
         if isValidUser {
-            //TODO: call HomeViewController
+            
         } else {
             print("User is invalid")
         }

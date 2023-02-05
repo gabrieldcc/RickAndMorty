@@ -12,7 +12,7 @@ protocol LoginRouterDelegate: AnyObject {
     func successfullLogin()
 }
 
-class LoginRouter {
+final class LoginRouter {
     
     var window: UIWindow
     var loginViewController: LoginViewController?
@@ -21,7 +21,7 @@ class LoginRouter {
     init(window: UIWindow) {
         self.window = window
     }
-    
+
     func setRootViewController() {
         loginViewController = LoginViewController()
         window.rootViewController = loginViewController

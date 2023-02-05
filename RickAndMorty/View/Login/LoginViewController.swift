@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate: AnyObject {
-    func validateUserLogin(loginInputed: UserLogin) -> Bool
-}
-
 final class LoginViewController: UIViewController {
     
     //MARK: - Let
@@ -22,8 +18,16 @@ final class LoginViewController: UIViewController {
         self.view = containerView
     }
     
-    //TODO: 
-    func tapButton() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
     }
 }
+
+extension LoginViewController: LoginRouterDelegate {
+    func successfullLogin() {
+        <#code#>
+    }
+    
+}
+
