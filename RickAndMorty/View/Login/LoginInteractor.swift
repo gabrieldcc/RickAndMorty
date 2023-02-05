@@ -7,19 +7,23 @@
 
 import Foundation
 
-class LoginInteractor {
+final class LoginInteractor {
     
-    var logins: [UserLogin] = [UserLogin(login: "Gabrieldcc", password: "Gabriel98$")]
+    var logins: [UserLogin] = [
+        UserLogin(login: "Gabrieldcc", password: "Gabriel98$"),
+    ]
     
     
     func validateUserLogin(loginInputed: UserLogin) -> Bool {
         var isUserValid = false
-        let isLoginValid = logins.contains(where: { $0.login == loginInputed.login })
-        let isPasswordValid = logins.contains(where: { $0.password == loginInputed.password })
+        let isLoginValid = logins.contains(
+            where: { $0.login == loginInputed.login }
+        )
+        let isPasswordValid = logins.contains(
+            where: { $0.password == loginInputed.password }
+        )
         
-        if  isLoginValid {
-            isUserValid = true
-        } else if isPasswordValid {
+        if  isLoginValid && isPasswordValid {
             isUserValid = true
         }
         return isUserValid
@@ -28,6 +32,6 @@ class LoginInteractor {
 
 
 
-    
+
     
 

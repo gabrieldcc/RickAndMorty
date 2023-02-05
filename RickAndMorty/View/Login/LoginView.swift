@@ -154,7 +154,7 @@ extension LoginView: LoginRouterDelegate {
         let isValidUser = loginInteractor.validateUserLogin(loginInputed: user)
         
         if isValidUser {
-            
+            loginRouter
         } else {
             print("User is invalid")
         }

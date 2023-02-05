@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func showHomeViewController()
+}
+
 final class LoginViewController: UIViewController {
     
     //MARK: - Let
@@ -28,6 +32,4 @@ extension LoginViewController: LoginRouterDelegate {
     func successfullLogin() {
         <#code#>
     }
-    
 }
-
