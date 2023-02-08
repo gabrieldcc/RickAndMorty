@@ -21,8 +21,10 @@ class HomeRouter {
     func showDetails(of character: Character) {
         let controller = DetailsViewController()
         controller.character = character
-        navigationController?.pushViewController(controller,
-                                                 animated: true)
+        navigationController?.pushViewController(
+            controller,
+            animated: true
+        )
     }
     
     func setRootViewController() {

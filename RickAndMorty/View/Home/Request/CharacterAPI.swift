@@ -9,13 +9,34 @@ import Foundation
 
 class CharacterAPI {
     
-    class func makeRequest(nextPage: Int, completion: @escaping (MainData) -> ()) {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character?page=\(nextPage)") else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            print("response: \(String(describing: response))")
-            print("error to receive data: \(String(describing: error))")
-            guard let responseData = data else { return }
-            DispatchQueue.main.async {
+    func makeRequest(
+        nextPage: Int,
+        completion: @escaping (MainData) -> ()) {
+            let endpoint = "https://rickandmortyapi.com/api/character?page=\(nextPage)"
+            guard let url = URL(string: endpoint) else { return }
+            
+            let task = URLSession.shared.dataTask(with: url) { [self]
+                (data, response, error) in
+                self.responseHandler(response)
+                self.errorHanlder(error)
+                self.dataHandler(data) { result in
+                    completion(result)
+                }
+            }
+            task.resume()
+        }
+    
+    fileprivate func responseHandler(_ response: URLResponse?) {
+        print("response: \(String(describing: response))")
+    }
+    
+    fileprivate func errorHanlder(_ error: Error?) {
+        print("error to receive data: \(String(describing: error))")
+    }
+    
+    fileprivate func dataHandler(_ data: Data?, completion: @escaping (MainData) -> ()) {
+        guard let responseData = data else { return }
+        DispatchQueue.main.async {
             do {
                 let result = try JSONDecoder().decode(MainData.self, from: responseData)
                 completion(result)
@@ -23,7 +44,5 @@ class CharacterAPI {
                 print("error to call: \(error)")
             }
         }
-    }
-        task.resume()
     }
 }
