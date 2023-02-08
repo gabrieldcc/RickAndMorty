@@ -25,10 +25,17 @@ class AppRouter {
     func setLoginRouter() {
         loginRouter = LoginRouter(window: window)
         loginRouter?.setRootViewController()
+        loginRouter?.delegate = self
     }
     
     func setHomeRouter() {
         homeRouter = HomeRouter(window: window)
         homeRouter?.setRootViewController()
+    }
+}
+
+extension AppRouter: LoginRouterDelegate {
+    func successfullLoginRouterDelegate() {
+        setHomeRouter()
     }
 }

@@ -142,18 +142,11 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		85C2ECAA2957AD1400969980 /* Repository */ = {
+		656B2F8E2992EE0E004D0586 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		85C2ECAB2957AD1D00969980 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Response;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		85EACB8629537FC1009BEE15 = {
@@ -179,6 +172,7 @@
 		85EACB9129537FC1009BEE15 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				656B2F8E2992EE0E004D0586 /* Models */,
 				85EACBA029537FC3009BEE15 /* Info.plist */,
 				85EACBC32953814E009BEE15 /* AppDelegate */,
 				85EACBE92954BB32009BEE15 /* Utilities */,
@@ -239,10 +233,10 @@
 		85EACBC729538369009BEE15 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				85EACBCD2953842C009BEE15 /* Request */,
 				85EACB9629537FC1009BEE15 /* HomeViewController.swift */,
 				85EACBC829538390009BEE15 /* HomeView.swift */,
 				852289BA295B38DB00822216 /* HomeRouter.swift */,
+				85EACBCD2953842C009BEE15 /* Request */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -261,8 +255,6 @@
 				85EACBD129538485009BEE15 /* PagesAPI.swift */,
 				85EACBCE29538446009BEE15 /* CharacterAPI.swift */,
 				85EACBD329538624009BEE15 /* Data Struct */,
-				85C2ECAB2957AD1D00969980 /* Response */,
-				85C2ECAA2957AD1400969980 /* Repository */,
 			);
 			path = Request;
 			sourceTree = "<group>";

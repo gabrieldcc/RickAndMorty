@@ -25,7 +25,7 @@ extension UIView {
             let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
             
             rotation.toValue =  CGAffineTransform(rotationAngle: convertDegreesRadians(degrees: 60)) //NSNumber(value: 50 / (180.0 * CGFloat.pi))
-            rotation.duration = 10
+            rotation.duration = 2
             rotation.isCumulative = true
             rotation.repeatCount = Float.greatestFiniteMagnitude
             self.layer.add(rotation, forKey: "rotationAnimation")

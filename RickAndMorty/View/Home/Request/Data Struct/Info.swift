@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Info
 struct Info: Codable {
-    let count, pages: Int
+    let count: Int
+    let pages: Int
     let next: String
 }

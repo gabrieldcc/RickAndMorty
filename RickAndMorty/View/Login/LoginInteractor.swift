@@ -12,10 +12,10 @@ final class LoginInteractor {
     var logins: [UserLogin] = [
         UserLogin(login: "Gabrieldcc", password: "Gabriel98$"),
     ]
+    var isUserValid: (() -> Void)?
+    var isNotUserValid: ((String) -> Void)?
     
-    
-    func validateUserLogin(loginInputed: UserLogin) -> Bool {
-        var isUserValid = false
+    func validateUserLogin(loginInputed: UserLogin) {
         let isLoginValid = logins.contains(
             where: { $0.login == loginInputed.login }
         )
@@ -24,9 +24,11 @@ final class LoginInteractor {
         )
         
         if  isLoginValid && isPasswordValid {
-            isUserValid = true
+            self.isUserValid?()
+        } else {
+            //TODO: Implementar caso erro
+            self.isNotUserValid?("Error")
         }
-        return isUserValid
     }
 }
 

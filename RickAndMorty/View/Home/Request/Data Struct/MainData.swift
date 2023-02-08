@@ -9,5 +9,5 @@ import Foundation
 
 struct MainData: Codable {
     let info: Info
-    let results: [Character]
+    var results: [Character]
 }

@@ -9,8 +9,8 @@ import Foundation
 
 class CharacterAPI {
     
-    class func makeRequest(completion: @escaping (MainData) -> ()) {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character") else { return }
+    class func makeRequest(nextPage: Int, completion: @escaping (MainData) -> ()) {
+        guard let url = URL(string: "https://rickandmortyapi.com/api/character?page=\(nextPage)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             print("response: \(String(describing: response))")
             print("error to receive data: \(String(describing: error))")

@@ -7,23 +7,16 @@
 
 import UIKit
 
-class UIButtonDefault: UIButton {
-    
-//     init(title: String) {
-//         super.init(frame: .zero)
-//         initDefault(title: title)
-//    }
+final class UIButtonDefault: UIButton {
     
     init(title: String,
          target: Any?,
-         selector: Selector,
          forEvent: UIControl.Event) {
         
         super.init(frame: .zero)
         initDefault(
             title: title,
             target: target,
-            selector: selector,
             forEvent: forEvent
         )
     }
@@ -35,7 +28,6 @@ class UIButtonDefault: UIButton {
     private func initDefault(
         title: String,
         target: Any?,
-        selector: Selector,
         forEvent: UIControl.Event
     ) {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +35,5 @@ class UIButtonDefault: UIButton {
         self.layer.cornerRadius = 10
         self.setTitle(title, for: .normal)
         self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        self.addTarget(target, action: selector, for: forEvent)
     }
 }

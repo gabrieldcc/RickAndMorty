@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol LoginRouterDelegate: AnyObject {
-    func successfullLogin()
+    func successfullLoginRouterDelegate()
 }
 
 final class LoginRouter {
@@ -17,14 +17,21 @@ final class LoginRouter {
     var window: UIWindow
     var loginViewController: LoginViewController?
     weak var delegate: LoginRouterDelegate?
-    
+
     init(window: UIWindow) {
         self.window = window
     }
 
     func setRootViewController() {
         loginViewController = LoginViewController()
+        loginViewController?.delegate = self
         window.rootViewController = loginViewController
         window.makeKeyAndVisible()
+    }
+}
+
+extension LoginRouter: LoginViewControllerDelegate {
+    func successfullLogin() {
+        delegate?.successfullLoginRouterDelegate()
     }
 }

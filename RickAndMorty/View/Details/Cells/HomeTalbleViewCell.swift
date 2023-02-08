@@ -23,7 +23,6 @@ class HomeTableViewCell: UITableViewCell {
         setupView()
         
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -100,6 +99,14 @@ class HomeTableViewCell: UITableViewCell {
             return element
         }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+        statusLabel.text = nil
+        specieLabel.text = nil
+        genderLabel.text = nil
+        characterImage.image = nil
+    }
 }
 
 extension HomeTableViewCell: ViewCodableProtocol {

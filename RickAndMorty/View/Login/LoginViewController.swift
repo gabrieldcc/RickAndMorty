@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: AnyObject {
-    func showHomeViewController()
+    func successfullLogin()
 }
 
 final class LoginViewController: UIViewController {
@@ -16,6 +16,7 @@ final class LoginViewController: UIViewController {
     //MARK: - Let
     let containerView = LoginView()
     weak var delegate: LoginViewControllerDelegate?
+    var loginInteractor = LoginInteractor()
     
     //MARK: - Lifecycle View
     override func loadView() {
@@ -24,12 +25,28 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBindings()
     }
-}
-
-extension LoginViewController: LoginRouterDelegate {
-    func successfullLogin() {
-        <#code#>
+    
+    @objc func targetLoginButton() {
+        let login = containerView.loginTextField.text ?? ""
+        let password = containerView.passwordTextField.text ?? ""
+        let user = UserLogin(login: login, password: password)
+        loginInteractor.validateUserLogin(loginInputed: user)
+    }
+    
+    func setupBindings() {
+        containerView.loginButton.addTarget(
+            self,
+            action: #selector(targetLoginButton),
+            for: .touchUpInside
+        )
+        loginInteractor.isUserValid = { [weak self] in
+            self?.delegate?.successfullLogin()
+        }
+        loginInteractor.isNotUserValid = { [weak self] error in
+            print(error)
+        }
+        
     }
 }

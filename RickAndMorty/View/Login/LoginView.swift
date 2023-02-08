@@ -10,9 +10,6 @@ import UIKit
 
 final class LoginView: UIView {
     
-    //MARK: - Var
-    var loginViewController: LoginViewController?
-    var loginInteractor = LoginInteractor()
     
     //MARK: - Init
     init() {
@@ -42,11 +39,12 @@ final class LoginView: UIView {
         element.layer.masksToBounds = true
         element.backgroundColor = .black
         element.image = UIImage(named: "portalRick")
+        element.rotate()
     
         return element
     }()
     
-    private lazy var backgroundVStack: UIStackView = {
+    private lazy var loginBackgroundVStack: UIStackView = {
         let element = UIStackView(frame: .zero)
         let green: CGColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -110,10 +108,11 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var loginTextField: UITextFieldDefault = {
+     lazy var loginTextField: UITextFieldDefault = {
         let element = UITextFieldDefault(
             placeholder: "  Digite seu login"
         )
+         element.text = "Gabrieldcc"
         return element
     }()
     
@@ -124,56 +123,35 @@ final class LoginView: UIView {
         return element
     }()
     
-    private lazy var passwordTextField: UITextField = {
+     lazy var passwordTextField: UITextField = {
         let element = UITextFieldDefault(
             placeholder: "  Digite sua senha"
         )
+         element.text = "Gabriel98$"
         return element
     }()
     
-    private lazy var loginButton: UIButtonDefault = {
+     lazy var loginButton: UIButtonDefault = {
         let element = UIButtonDefault(
             title: "Login",
             target: self,
-            selector: #selector(targetLoginButton),
             forEvent: .touchUpInside
         )
         return element
     }()
-    
-    @objc func targetLoginButton() {
-       
-    }
-}
-
-extension LoginView: LoginRouterDelegate {
-    func successfullLogin() {
-        let login = loginTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        let user = UserLogin(login: login, password: password)
-        let isValidUser = loginInteractor.validateUserLogin(loginInputed: user)
-        
-        if isValidUser {
-            loginRouter
-        } else {
-            print("User is invalid")
-        }
-    }
-    
-    
 }
 
 //MARK: - ViewCodable
 extension LoginView: ViewCodableProtocol {
     func buildHierarchy() {
-        addSubview(backgroundVStack)
+        addSubview(loginBackgroundVStack)
         addSubview(rotateImageContainerView)
         addSubview(loginButton)
         containerView.addSubview(containerVStack)
         rotateImageContainerView.addSubview(rotateImage)
         
         ViewCodable.addArrangedSubviews(
-            stackView: backgroundVStack,
+            stackView: loginBackgroundVStack,
             subviews: [containerView]
         )
         
@@ -223,34 +201,34 @@ extension LoginView: ViewCodableProtocol {
             rotateImage.heightAnchor.constraint(equalToConstant: 280),
             rotateImage.widthAnchor.constraint(equalToConstant: 280),
             
-            backgroundVStack.topAnchor.constraint(
+            loginBackgroundVStack.topAnchor.constraint(
                 equalTo: rotateImage.bottomAnchor,
-                constant: defaultSize
+                constant: 80
             ),
-            backgroundVStack.centerXAnchor.constraint(
+            loginBackgroundVStack.centerXAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.centerXAnchor),
             
-            backgroundVStack.leadingAnchor.constraint(
+            loginBackgroundVStack.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
                 constant: defaultSize
             ),
-            backgroundVStack.trailingAnchor.constraint(
+            loginBackgroundVStack.trailingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.trailingAnchor,
                 constant: defaultSizeN
             ),
             
             
             containerView.topAnchor.constraint(
-                equalTo: backgroundVStack.topAnchor
+                equalTo: loginBackgroundVStack.topAnchor
             ),
             containerView.bottomAnchor.constraint(
-                equalTo: backgroundVStack.bottomAnchor
+                equalTo: loginBackgroundVStack.bottomAnchor
             ),
             containerView.leadingAnchor.constraint(
-                equalTo: backgroundVStack.leadingAnchor
+                equalTo: loginBackgroundVStack.leadingAnchor
             ),
             containerView.trailingAnchor.constraint(
-                equalTo: backgroundVStack.trailingAnchor
+                equalTo: loginBackgroundVStack.trailingAnchor
             ),
             
             containerVStack.topAnchor.constraint(
