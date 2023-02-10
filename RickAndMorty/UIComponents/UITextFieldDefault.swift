@@ -26,5 +26,6 @@ class UITextFieldDefault: UITextField {
         self.placeholder = placeholder
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
+        self.setLeftPaddingPoints(5)
     }
 }

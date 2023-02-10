@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharacterAPI {
+final class CharacterAPI {
     
     func makeRequest(
         nextPage: Int,
@@ -15,10 +15,10 @@ class CharacterAPI {
             let endpoint = "https://rickandmortyapi.com/api/character?page=\(nextPage)"
             guard let url = URL(string: endpoint) else { return }
             
-            let task = URLSession.shared.dataTask(with: url) { [self]
+            let task = URLSession.shared.dataTask(with: url) { [ self ]
                 (data, response, error) in
                 self.responseHandler(response)
-                self.errorHanlder(error)
+                self.errorHandler(error)
                 self.dataHandler(data) { result in
                     completion(result)
                 }
@@ -30,7 +30,7 @@ class CharacterAPI {
         print("response: \(String(describing: response))")
     }
     
-    fileprivate func errorHanlder(_ error: Error?) {
+    fileprivate func errorHandler(_ error: Error?) {
         print("error to receive data: \(String(describing: error))")
     }
     
