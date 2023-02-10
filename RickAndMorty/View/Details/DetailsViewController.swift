@@ -27,6 +27,4 @@ final class DetailsViewController: UIViewController {
         containerView.genderDinamicLabel.text = character.gender.rawValue
         containerView.updateLabels(character: character)
     }
-
-    
 }
