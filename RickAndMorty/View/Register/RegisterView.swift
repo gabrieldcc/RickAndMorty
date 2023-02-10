@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class LoginView: UIView {
+final class RegisterView: UIView {
     
     
     //MARK: - Init
@@ -23,27 +23,6 @@ final class LoginView: UIView {
     }
     
     //MARK: - Visual Components
-    
-    private lazy var rotateImageContainerView: UIView = {
-        let element = UIView(frame: .zero)
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = .black
-        
-        return element
-    }()
-    
-    private lazy var rotateImage: UIImageView = {
-        let element = UIImageView()
-        element.translatesAutoresizingMaskIntoConstraints = false
-        element.layer.cornerRadius = 25
-        element.layer.masksToBounds = true
-        element.backgroundColor = .black
-        element.image = UIImage(named: "portalRick")
-        element.rotate(duration: 5)
-    
-        return element
-    }()
-    
     private lazy var loginBackgroundVStack: UIStackView = {
         let element = UIStackView(frame: .zero)
         let green: CGColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
@@ -142,13 +121,11 @@ final class LoginView: UIView {
 }
 
 //MARK: - ViewCodable
-extension LoginView: ViewCodableProtocol {
+extension RegisterView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(loginBackgroundVStack)
-        addSubview(rotateImageContainerView)
         addSubview(loginButton)
         containerView.addSubview(containerVStack)
-        rotateImageContainerView.addSubview(rotateImage)
         
         ViewCodable.addArrangedSubviews(
             stackView: loginBackgroundVStack,
@@ -185,26 +162,6 @@ extension LoginView: ViewCodableProtocol {
         let defaultSizeN: CGFloat = -44
         
         NSLayoutConstraint.activate([
-            rotateImageContainerView.topAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.topAnchor,
-                constant: defaultSize
-            ),
-            rotateImageContainerView.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor,
-                constant: defaultSize
-            ),
-            rotateImageContainerView.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor,
-                constant: defaultSizeN
-            ),
-            
-            rotateImage.heightAnchor.constraint(equalToConstant: 280),
-            rotateImage.widthAnchor.constraint(equalToConstant: 280),
-            
-            loginBackgroundVStack.topAnchor.constraint(
-                equalTo: rotateImage.bottomAnchor,
-                constant: 80
-            ),
             loginBackgroundVStack.centerXAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.centerXAnchor),
             

@@ -23,13 +23,13 @@ extension UIView {
         self.layer.add(rotateAnimation, forKey: nil)
     }
     
-    func rotate() {
+    func rotate(duration: CFTimeInterval) {
         let rotation: CABasicAnimation =
         CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.toValue =  CGAffineTransform(
             rotationAngle: convertDegreesRadians(degrees: 60)
         )
-        rotation.duration = 5
+        rotation.duration = duration
         rotation.isCumulative = true
         rotation.repeatCount = Float.greatestFiniteMagnitude
         self.layer.add(rotation, forKey: "rotationAnimation")
