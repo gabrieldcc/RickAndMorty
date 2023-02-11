@@ -13,6 +13,7 @@ class AppRouter {
     var window: UIWindow
     var loginRouter: LoginRouter?
     var homeRouter: HomeRouter?
+    var registerRouter: RegisterRouter?
     
     init(window: UIWindow) {
         self.window = window
@@ -32,9 +33,18 @@ class AppRouter {
         homeRouter = HomeRouter(window: window)
         homeRouter?.setRootViewController()
     }
+    
+    func setRegisterRouter() {
+        registerRouter = RegisterRouter(window: window)
+        registerRouter?.setRootViewController()
+    }
 }
 
 extension AppRouter: LoginRouterDelegate {
+    func signUpRouterDelegate() {
+        setRegisterRouter()
+    }
+    
     func successfullLoginRouterDelegate() {
         setHomeRouter()
     }

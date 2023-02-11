@@ -13,7 +13,7 @@ final class LoginInteractor {
         UserLogin(login: "Gabrieldcc", password: "Gabriel98$"),
     ]
     var isUserValid: (() -> Void)?
-    var isNotUserValid: ((String) -> Void)?
+    var isNotValidUser: ((String) -> Void)?
     
     func validateUserLogin(loginInputed: UserLogin) {
         let isLoginValid = logins.contains(
@@ -27,7 +27,7 @@ final class LoginInteractor {
             self.isUserValid?()
         } else {
             //TODO: Implementar caso erro
-            self.isNotUserValid?("Error")
+            self.isNotValidUser?("Error")
         }
     }
 }

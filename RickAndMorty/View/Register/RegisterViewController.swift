@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
+protocol RegisterViewControllerDelegate: AnyObject {
+    
+}
+
 
 class RegisterViewController: UIViewController {
     //MARK: - Vars
     let containerView = RegisterView()
+    weak var delegate: RegisterViewControllerDelegate?
     
     
     //MARK: - View lifecycle

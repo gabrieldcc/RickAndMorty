@@ -32,8 +32,6 @@ final class RegisterView: UIView {
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
         element.layer.masksToBounds = true
-        element.layer.borderColor =  green
-        element.layer.borderWidth = 1
         
         return element
     }()
@@ -162,9 +160,12 @@ extension RegisterView: ViewCodableProtocol {
         let defaultSizeN: CGFloat = -44
         
         NSLayoutConstraint.activate([
+            loginBackgroundVStack.topAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.topAnchor, constant: defaultSize
+            ),
             loginBackgroundVStack.centerXAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.centerXAnchor),
-            
+                equalTo: safeAreaLayoutGuide.centerXAnchor
+            ),
             loginBackgroundVStack.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
                 constant: defaultSize

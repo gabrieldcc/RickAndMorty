@@ -23,6 +23,8 @@
 		656B2F9529966F4C004D0586 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F9429966F4C004D0586 /* RegisterView.swift */; };
 		656B2F9729966F73004D0586 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B2F9629966F73004D0586 /* RegisterViewController.swift */; };
 		8500F22029981BED0051EE51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8500F21F29981BED0051EE51 /* GoogleService-Info.plist */; };
+		8500F222299826F80051EE51 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F221299826F80051EE51 /* RegisterRouter.swift */; };
+		8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F223299827070051EE51 /* RegisterInteractor.swift */; };
 		852289BB295B38DB00822216 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeRouter.swift */; };
 		85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9229537FC1009BEE15 /* AppDelegate.swift */; };
 		85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9429537FC1009BEE15 /* SceneDelegate.swift */; };
@@ -83,6 +85,8 @@
 		656B2F9629966F73004D0586 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7839457B4F783EF7FF0549D4 /* Pods-RickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		8500F21F29981BED0051EE51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8500F221299826F80051EE51 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		8500F223299827070051EE51 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		852289BA295B38DB00822216 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		85EACB8F29537FC1009BEE15 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EACB9229537FC1009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +152,6 @@
 				653B2F522983475400297AAB /* LoginView.swift */,
 				656B2F8A298EC253004D0586 /* LoginInteractor.swift */,
 				655D026C29845E7300AEEEF0 /* LoginRouter.swift */,
-				656B2F8C298EC2D4004D0586 /* UserLogin.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 		656B2F8E2992EE0E004D0586 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8500F22529982FE60051EE51 /* Login */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,8 +179,18 @@
 			children = (
 				656B2F9629966F73004D0586 /* RegisterViewController.swift */,
 				656B2F9429966F4C004D0586 /* RegisterView.swift */,
+				8500F223299827070051EE51 /* RegisterInteractor.swift */,
+				8500F221299826F80051EE51 /* RegisterRouter.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		8500F22529982FE60051EE51 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				656B2F8C298EC2D4004D0586 /* UserLogin.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		85EACB8629537FC1009BEE15 = {
@@ -204,14 +218,14 @@
 		85EACB9129537FC1009BEE15 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				656B2F8E2992EE0E004D0586 /* Models */,
 				85EACBA029537FC3009BEE15 /* Info.plist */,
 				8500F21F29981BED0051EE51 /* GoogleService-Info.plist */,
 				85EACBC32953814E009BEE15 /* AppDelegate */,
-				85EACBE92954BB32009BEE15 /* Utilities */,
 				85EACBE62954BB09009BEE15 /* Extensions */,
-				85EACBC42953815B009BEE15 /* Resources */,
 				655D0274298690D900AEEEF0 /* UIComponents */,
+				85EACBC42953815B009BEE15 /* Resources */,
+				85EACBE92954BB32009BEE15 /* Utilities */,
+				656B2F8E2992EE0E004D0586 /* Models */,
 				85EACBC229538148009BEE15 /* View */,
 			);
 			path = RickAndMorty;
@@ -351,7 +365,6 @@
 				BD0642DE9F8357FCF836673E /* Pods-RickAndMortyTests.debug.xcconfig */,
 				7839457B4F783EF7FF0549D4 /* Pods-RickAndMortyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -597,6 +610,7 @@
 				85EACBD72953865E009BEE15 /* Character.swift in Sources */,
 				656B2F9229966B2D004D0586 /* UITextField+.swift in Sources */,
 				85EACBD529538630009BEE15 /* MainData.swift in Sources */,
+				8500F222299826F80051EE51 /* RegisterRouter.swift in Sources */,
 				655D026B29840A3400AEEEF0 /* AppRouter.swift in Sources */,
 				656B2F8B298EC253004D0586 /* LoginInteractor.swift in Sources */,
 				85EACBE82954BB1B009BEE15 /* UIImageView+.swift in Sources */,
@@ -614,6 +628,7 @@
 				85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */,
 				653B2F532983475400297AAB /* LoginView.swift in Sources */,
 				85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */,
+				8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */,
 				653B2F512983473500297AAB /* LoginViewController.swift in Sources */,
 				656B2F8D298EC2D4004D0586 /* UserLogin.swift in Sources */,
 				85EACBE52954BACB009BEE15 /* DetailsViewController.swift in Sources */,

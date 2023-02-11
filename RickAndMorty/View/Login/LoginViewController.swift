@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginViewControllerDelegate: AnyObject {
     func successfullLogin()
+    func signUp()
 }
 
 final class LoginViewController: UIViewController {
@@ -26,27 +27,38 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        setupRegisterButton()
     }
     
-    @objc func targetLoginButton() {
+    @objc func loginButtonTarget() {
         let login = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
         let user = UserLogin(login: login, password: password)
         loginInteractor.validateUserLogin(loginInputed: user)
     }
     
+    @objc func registerButtonTarget() {
+        self.delegate?.signUp()
+    }
+    
     func setupBindings() {
         containerView.loginButton.addTarget(
             self,
-            action: #selector(targetLoginButton),
+            action: #selector(loginButtonTarget),
             for: .touchUpInside
         )
         loginInteractor.isUserValid = { [weak self] in
             self?.delegate?.successfullLogin()
         }
-        loginInteractor.isNotUserValid = { [weak self] error in
+        loginInteractor.isNotValidUser = { [weak self] error in
             print(error)
         }
-        
+    }
+    
+    func setupRegisterButton() {
+        containerView.registerButton.addTarget(
+            self,
+            action: #selector(registerButtonTarget),
+            for: .touchUpInside)
     }
 }
