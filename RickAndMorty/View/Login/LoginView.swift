@@ -40,7 +40,7 @@ final class LoginView: UIView {
         element.backgroundColor = .black
         element.image = UIImage(named: "portalRick")
         element.rotate(duration: 5)
-    
+        
         return element
     }()
     
@@ -53,9 +53,7 @@ final class LoginView: UIView {
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
         element.layer.masksToBounds = true
-        element.layer.borderColor =  green
-        element.layer.borderWidth = 1
-        
+
         return element
     }()
     
@@ -108,11 +106,11 @@ final class LoginView: UIView {
         return element
     }()
     
-     lazy var loginTextField: UITextFieldDefault = {
+    lazy var loginTextField: UITextFieldDefault = {
         let element = UITextFieldDefault(
             placeholder: "  Digite seu login"
         )
-         element.text = "Gabrieldcc"
+        element.text = "Gabrieldcc"
         return element
     }()
     
@@ -123,20 +121,33 @@ final class LoginView: UIView {
         return element
     }()
     
-     lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let element = UITextFieldDefault(
             placeholder: "  Digite sua senha"
         )
-         element.text = "Gabriel98$"
+        element.text = "Gabriel98$"
         return element
     }()
     
-     lazy var loginButton: UIButtonDefault = {
+    lazy var loginButton: UIButtonDefault = {
         let element = UIButtonDefault(
             title: "Login",
             target: self,
             forEvent: .touchUpInside
         )
+        element.backgroundColor = .green
+        element.setTitleColor(.black, for: .normal)
+        return element
+    }()
+    
+    lazy var registerButton: UIButtonDefault = {
+        let element = UIButtonDefault(
+            title: "Register",
+            target: self,
+            forEvent: .touchUpInside
+        )
+        element.backgroundColor = .white
+        element.setTitleColor(.black, for: .normal)
         return element
     }()
 }
@@ -147,6 +158,7 @@ extension LoginView: ViewCodableProtocol {
         addSubview(loginBackgroundVStack)
         addSubview(rotateImageContainerView)
         addSubview(loginButton)
+        addSubview(registerButton)
         containerView.addSubview(containerVStack)
         rotateImageContainerView.addSubview(rotateImage)
         
@@ -187,7 +199,7 @@ extension LoginView: ViewCodableProtocol {
         NSLayoutConstraint.activate([
             rotateImageContainerView.topAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.topAnchor,
-                constant: defaultSize
+                constant: 20
             ),
             rotateImageContainerView.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
@@ -203,7 +215,7 @@ extension LoginView: ViewCodableProtocol {
             
             loginBackgroundVStack.topAnchor.constraint(
                 equalTo: rotateImage.bottomAnchor,
-                constant: 80
+                constant: defaultSize
             ),
             loginBackgroundVStack.centerXAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.centerXAnchor),
@@ -253,7 +265,9 @@ extension LoginView: ViewCodableProtocol {
             passwordLabel.heightAnchor.constraint(equalToConstant: defaultSize),
             passwordTextField.heightAnchor.constraint(equalToConstant: defaultSize),
             
-            loginButton.heightAnchor.constraint(equalToConstant: defaultSize),
+            loginButton.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
             loginButton.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
                 constant: defaultSize
@@ -263,9 +277,24 @@ extension LoginView: ViewCodableProtocol {
                 constant: defaultSizeN
             ),
             loginButton.bottomAnchor.constraint(
+                equalTo: registerButton.topAnchor,
+                constant: -10
+            ),
+            registerButton.bottomAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.bottomAnchor,
                 constant: defaultSizeN
-            )
+            ),
+            registerButton.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
+            registerButton.leadingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.leadingAnchor,
+                constant: defaultSize
+            ),
+            registerButton.trailingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.trailingAnchor,
+                constant: defaultSizeN
+            ),
         ])
     }
 }
