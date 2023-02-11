@@ -26,32 +26,34 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
+        setupLoginButton()
         setupRegisterButton()
     }
     
     @objc func loginButtonTarget() {
-        let login = containerView.loginTextField.text ?? ""
+        let email = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
-        let user = UserLogin(login: login, password: password)
-        loginInteractor.validateUserLogin(loginInputed: user)
+        loginInteractor.validateUserLogin(
+            email: email,
+            password: password
+        )
     }
     
     @objc func registerButtonTarget() {
         self.delegate?.signUp()
     }
     
-    func setupBindings() {
+    func setupLoginButton() {
         containerView.loginButton.addTarget(
             self,
             action: #selector(loginButtonTarget),
             for: .touchUpInside
         )
-        loginInteractor.isUserValid = { [weak self] in
+        loginInteractor.isValidUser = { [weak self] in
             self?.delegate?.successfullLogin()
         }
-        loginInteractor.isNotValidUser = { [weak self] error in
-            print(error)
+        loginInteractor.isNotValidUser = { [weak self] erro in
+            UIAlertDefault.showAlert(title: <#T##String#>, message: <#T##String#>, buttonTitle: <#T##String#>)
         }
     }
     

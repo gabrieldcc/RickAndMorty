@@ -85,11 +85,11 @@ final class RegisterView: UIView {
         return element
     }()
     
-     lazy var loginTextField: UITextFieldDefault = {
+    lazy var loginTextField: UITextFieldDefault = {
         let element = UITextFieldDefault(
             placeholder: "  Digite seu login"
         )
-         element.text = "Gabrieldcc"
+        element.text = "Gabrieldcc"
         return element
     }()
     
@@ -100,15 +100,15 @@ final class RegisterView: UIView {
         return element
     }()
     
-     lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let element = UITextFieldDefault(
             placeholder: "  Digite sua senha"
         )
-         element.text = "Gabriel98$"
+        element.text = "Gabriel98$"
         return element
     }()
     
-     lazy var loginButton: UIButtonDefault = {
+    lazy var loginButton: UIButtonDefault = {
         let element = UIButtonDefault(
             title: "Login",
             target: self,
@@ -206,12 +206,22 @@ extension RegisterView: ViewCodableProtocol {
                 constant: -10
             ),
             
-            loginLabel.heightAnchor.constraint(equalToConstant: defaultSize),
-            loginTextField.heightAnchor.constraint(equalToConstant: defaultSize),
-            passwordLabel.heightAnchor.constraint(equalToConstant: defaultSize),
-            passwordTextField.heightAnchor.constraint(equalToConstant: defaultSize),
+            loginLabel.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
+            loginTextField.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
+            passwordLabel.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
+            passwordTextField.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
             
-            loginButton.heightAnchor.constraint(equalToConstant: defaultSize),
+            loginButton.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
             loginButton.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
                 constant: defaultSize

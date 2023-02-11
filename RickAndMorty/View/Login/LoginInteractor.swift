@@ -6,34 +6,51 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class LoginInteractor {
     
     var logins: [UserLogin] = [
         UserLogin(login: "Gabrieldcc", password: "Gabriel98$"),
     ]
-    var isUserValid: (() -> Void)?
-    var isNotValidUser: ((String) -> Void)?
+    var isValidUser: (() -> Void)?
+    var isNotValidUser: (() -> Void)?
     
-    func validateUserLogin(loginInputed: UserLogin) {
-        let isLoginValid = logins.contains(
-            where: { $0.login == loginInputed.login }
-        )
-        let isPasswordValid = logins.contains(
-            where: { $0.password == loginInputed.password }
-        )
+    func validateUserLogin(email: String, password: String) {
+        //        let isLoginValid = logins.contains(
+        //            where: { $0.login == loginInputed.login }
+        //        )
+        //        let isPasswordValid = logins.contains(
+        //            where: { $0.password == loginInputed.password }
+        //        )
+        //
+        //        if  isLoginValid && isPasswordValid {
+        //            self.isUserValid?()
+        //        } else {
+        //            //TODO: Implementar caso erro
+        //            self.isNotValidUser?("Error")
+        //        }
         
-        if  isLoginValid && isPasswordValid {
-            self.isUserValid?()
-        } else {
-            //TODO: Implementar caso erro
-            self.isNotValidUser?("Error")
-        }
+        Auth.auth().signIn(
+            withEmail: email,
+            password: password) {
+                (user, error) in
+                
+                if let error = error {
+                    print("Unable to sign user in with error", error.localizedDescription)
+                    self.isNotValidUser?()
+                }
+                return
+            }
+        self.isValidUser?()
     }
+    
+    
 }
 
 
 
 
-    
+
+
 
