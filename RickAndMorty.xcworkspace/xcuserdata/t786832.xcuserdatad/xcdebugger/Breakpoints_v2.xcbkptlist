@@ -62,8 +62,8 @@
             filePath = "RickAndMorty/View/Login/LoginInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "validateUserLogin(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "RickAndMorty/View/Login/LoginInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "validateUserLogin(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
