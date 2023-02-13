@@ -55,15 +55,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6C0B7C22-D520-44CA-BC12-A7EA403AEEA8"
+            uuid = "87EED0C7-2564-4ECD-A977-83280957A8D2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RickAndMorty/View/Login/LoginInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "validateUserLogin(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,31 +71,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA8ED779-84A2-48F2-9AB4-B8B961CFE927"
+            uuid = "AE7E3BA8-C2EC-4728-8760-F2C22F2124D5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RickAndMorty/View/Login/LoginViewController.swift"
+            filePath = "RickAndMorty/View/Login/LoginInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "loginButtonTarget()"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "validateUserLogin(email:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A85D2FC3-5CBB-4151-BF62-4D9810A5756E"
+            uuid = "70F3ECDE-8375-4C21-958D-7C90E1B45E1E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RickAndMorty/View/Login/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "setupLoginButton()"
             landmarkType = "7">
          </BreakpointContent>

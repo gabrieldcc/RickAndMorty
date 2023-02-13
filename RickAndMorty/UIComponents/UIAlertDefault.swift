@@ -12,7 +12,8 @@ final class UIAlertDefault {
     static func showAlert(
         title: String,
         message: String,
-        buttonTitle: String
+        buttonTitle: String,
+        controller: UIViewController?
     ) {
         let alert = UIAlertController(
             title: title,
@@ -26,5 +27,11 @@ final class UIAlertDefault {
             handler: nil)
         
         alert.addAction(button)
+        
+        controller?.present(
+            alert,
+            animated: true,
+            completion: nil
+        )
     }
 }

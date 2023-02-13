@@ -53,7 +53,13 @@ final class LoginViewController: UIViewController {
             self?.delegate?.successfullLogin()
         }
         loginInteractor.isNotValidUser = { [weak self] erro in
-            UIAlertDefault.showAlert(title: <#T##String#>, message: <#T##String#>, buttonTitle: <#T##String#>)
+            print(erro)
+            UIAlertDefault.showAlert(
+                title: "Login ou senha incorretos",
+                message: "Por favor, verifique seu usuário ou senha.",
+                buttonTitle: "Ok",
+                controller: self
+            )
         }
     }
     
