@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     //MARK: - Vars
     let containerView = RegisterView()
     weak var delegate: RegisterViewControllerDelegate?
+    var interactor: RegisterInteractor?
     
     
     //MARK: - View lifecycle
@@ -26,31 +27,44 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSignUpButton()
     }
     
     private func setupSignUpButton() {
-        containerView.loginButton.addTarget(
+        containerView.signUpButton.addTarget(
             self,
-            action: #selector(createUser),
+            action: #selector(createUserButtonTarget),
             for: .touchUpInside
         )
+        
+
     }
     
-    @objc func createUser() {
+    @objc func createUserButtonTarget() {
         let email = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
+        interactor?.createUser(
+            email: email,
+            password: password
+        )
+        print("button tapped")
         
-        Auth.auth().createUser(
-            withEmail: email,
-            password: password) {
-                (authResult, error) in
-                
-                if let error = error {
-                    print("DEBUG: Failed to create user with error:", error.localizedDescription)
-                    return
-                }
-                print("Sign up was successful")
-            }
+        interactor?.isUserValid = { [weak self] in
+            UIAlertDefault.showAlert(
+                title: "Parabéns",
+                message: "Seu cadastro foi efetuado com sucesso",
+                buttonTitle: "Ok",
+                controller: self
+            )
+        }
         
+        interactor?.isNotUserValid = { [weak self] in
+            UIAlertDefault.showAlert(
+                title: "Que pena!",
+                message: "Seu cadastro não foi efetuado, tente novamente.",
+                buttonTitle: "Ok",
+                controller: self
+            )
+        }
     }
 }

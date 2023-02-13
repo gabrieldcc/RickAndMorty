@@ -108,9 +108,9 @@ final class RegisterView: UIView {
         return element
     }()
     
-    lazy var loginButton: UIButtonDefault = {
+    lazy var signUpButton: UIButtonDefault = {
         let element = UIButtonDefault(
-            title: "Login",
+            title: "Sing Up",
             target: self,
             forEvent: .touchUpInside
         )
@@ -122,7 +122,7 @@ final class RegisterView: UIView {
 extension RegisterView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(loginBackgroundVStack)
-        addSubview(loginButton)
+        addSubview(signUpButton)
         containerView.addSubview(containerVStack)
         
         ViewCodable.addArrangedSubviews(
@@ -219,18 +219,18 @@ extension RegisterView: ViewCodableProtocol {
                 equalToConstant: defaultSize
             ),
             
-            loginButton.heightAnchor.constraint(
+            signUpButton.heightAnchor.constraint(
                 equalToConstant: defaultSize
             ),
-            loginButton.leadingAnchor.constraint(
+            signUpButton.leadingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.leadingAnchor,
                 constant: defaultSize
             ),
-            loginButton.trailingAnchor.constraint(
+            signUpButton.trailingAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.trailingAnchor,
                 constant: defaultSizeN
             ),
-            loginButton.bottomAnchor.constraint(
+            signUpButton.bottomAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.bottomAnchor,
                 constant: defaultSizeN
             )

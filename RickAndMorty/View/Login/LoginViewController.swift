@@ -17,7 +17,7 @@ final class LoginViewController: UIViewController {
     //MARK: - Let
     let containerView = LoginView()
     weak var delegate: LoginViewControllerDelegate?
-    var loginInteractor = LoginInteractor()
+    var interactor = LoginInteractor()
     
     //MARK: - Lifecycle View
     override func loadView() {
@@ -33,7 +33,7 @@ final class LoginViewController: UIViewController {
     @objc func loginButtonTarget() {
         let email = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
-        loginInteractor.validateUserLogin(
+        interactor.validateUserLogin(
             email: email,
             password: password
         )
@@ -43,16 +43,16 @@ final class LoginViewController: UIViewController {
         self.delegate?.signUp()
     }
     
-    func setupLoginButton() {
+    private func setupLoginButton() {
         containerView.loginButton.addTarget(
             self,
             action: #selector(loginButtonTarget),
             for: .touchUpInside
         )
-        loginInteractor.isValidUser = { [weak self] in
+        interactor.isValidUser = { [weak self] in
             self?.delegate?.successfullLogin()
         }
-        loginInteractor.isNotValidUser = { [weak self] erro in
+        interactor.isNotValidUser = { [weak self] erro in
             print(erro)
             UIAlertDefault.showAlert(
                 title: "Login ou senha incorretos",
@@ -63,7 +63,7 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    func setupRegisterButton() {
+    private func setupRegisterButton() {
         containerView.registerButton.addTarget(
             self,
             action: #selector(registerButtonTarget),
