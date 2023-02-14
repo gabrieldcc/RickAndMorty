@@ -110,7 +110,9 @@ final class LoginView: UIView {
         let element = UITextFieldDefault(
             placeholder: "  Digite seu login"
         )
-        element.text = "Gabrieldcc"
+        element.text = "gabrieldcc@gmail.com"
+        element.autocapitalizationType = .none
+        
         return element
     }()
     
@@ -126,6 +128,7 @@ final class LoginView: UIView {
             placeholder: "  Digite sua senha"
         )
         element.text = "Gabriel98$"
+        element.autocapitalizationType = .none
         return element
     }()
     

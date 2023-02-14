@@ -68,8 +68,8 @@ final class LoginViewController: UIViewController {
     }
     
     private func loginFailHandler() {
-        interactor.isNotValidUser = { [weak self] erro in
-            print(erro)
+        interactor.isNotValidUser = { [weak self] fail in
+            print(fail)
             UIAlertDefault.showAlert(
                 title: "Login ou senha incorretos",
                 message: "Por favor, verifique seu usuário ou senha.",
