@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController {
     //MARK: - Vars
     let containerView = RegisterView()
     weak var delegate: RegisterViewControllerDelegate?
-    var interactor: RegisterInteractor?
+    var interactor = RegisterInteractor()
     
     
     //MARK: - View lifecycle
@@ -33,23 +33,25 @@ class RegisterViewController: UIViewController {
     private func setupSignUpButton() {
         containerView.signUpButton.addTarget(
             self,
-            action: #selector(createUserButtonTarget),
+            action: #selector(signUpButtonTarget),
             for: .touchUpInside
         )
-        
-
     }
     
-    @objc func createUserButtonTarget() {
+    @objc func signUpButtonTarget() {
         let email = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
-        interactor?.createUser(
+        interactor.createUser(
             email: email,
             password: password
         )
-        print("button tapped")
-        
-        interactor?.isUserValid = { [weak self] in
+        singUpSuccessHandler()
+        singUpFailHandler()
+    }
+    
+    
+    func singUpSuccessHandler() {
+        interactor.isUserValid = { [weak self] in
             UIAlertDefault.showAlert(
                 title: "Parabéns",
                 message: "Seu cadastro foi efetuado com sucesso",
@@ -57,11 +59,13 @@ class RegisterViewController: UIViewController {
                 controller: self
             )
         }
-        
-        interactor?.isNotUserValid = { [weak self] in
+    }
+    
+    func singUpFailHandler() {
+        interactor.isNotUserValid = { [weak self] in
             UIAlertDefault.showAlert(
                 title: "Que pena!",
-                message: "Seu cadastro não foi efetuado, tente novamente.",
+                message: "Seu cadastro não foi efetuado, tente novamente. Revise seu email ou verifique sua senha",
                 buttonTitle: "Ok",
                 controller: self
             )
