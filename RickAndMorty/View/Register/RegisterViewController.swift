@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController {
         interactor.isUserValid = { [weak self] in
             UIAlertDefault.showAlert(
                 title: "Parabéns",
-                message: "Seu cadastro foi efetuado com sucesso",
+                message: RegisterStrings.successful,
                 buttonTitle: "Ok",
                 controller: self
             )
@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController {
         interactor.isNotUserValid = { [weak self] in
             UIAlertDefault.showAlert(
                 title: "Que pena!",
-                message: "Seu cadastro não foi efetuado, tente novamente. Revise seu email ou verifique sua senha",
+                message: RegisterStrings.fail,
                 buttonTitle: "Ok",
                 controller: self
             )

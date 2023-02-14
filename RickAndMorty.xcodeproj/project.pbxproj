@@ -27,6 +27,8 @@
 		8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F223299827070051EE51 /* RegisterInteractor.swift */; };
 		852289BB295B38DB00822216 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeRouter.swift */; };
 		85584A8E299840D200858C7E /* UIAlertDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A8D299840D200858C7E /* UIAlertDefault.swift */; };
+		85584A91299C4C5200858C7E /* RegisterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A90299C4C5200858C7E /* RegisterStrings.swift */; };
+		85584A93299C4EBD00858C7E /* LoginStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A92299C4EBC00858C7E /* LoginStrings.swift */; };
 		85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9229537FC1009BEE15 /* AppDelegate.swift */; };
 		85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9429537FC1009BEE15 /* SceneDelegate.swift */; };
 		85EACB9729537FC1009BEE15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9629537FC1009BEE15 /* HomeViewController.swift */; };
@@ -90,6 +92,8 @@
 		8500F223299827070051EE51 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		852289BA295B38DB00822216 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		85584A8D299840D200858C7E /* UIAlertDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertDefault.swift; sourceTree = "<group>"; };
+		85584A90299C4C5200858C7E /* RegisterStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStrings.swift; sourceTree = "<group>"; };
+		85584A92299C4EBC00858C7E /* LoginStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStrings.swift; sourceTree = "<group>"; };
 		85EACB8F29537FC1009BEE15 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EACB9229537FC1009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EACB9429537FC1009BEE15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +200,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		85584A8F299C4C1200858C7E /* String */ = {
+			isa = PBXGroup;
+			children = (
+				85584A90299C4C5200858C7E /* RegisterStrings.swift */,
+				85584A92299C4EBC00858C7E /* LoginStrings.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		85EACB8629537FC1009BEE15 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +236,7 @@
 			children = (
 				85EACBA029537FC3009BEE15 /* Info.plist */,
 				8500F21F29981BED0051EE51 /* GoogleService-Info.plist */,
+				85584A8F299C4C1200858C7E /* String */,
 				85EACBC32953814E009BEE15 /* AppDelegate */,
 				85EACBE62954BB09009BEE15 /* Extensions */,
 				655D0274298690D900AEEEF0 /* UIComponents */,
@@ -626,6 +640,7 @@
 				85EACBCC295383CE009BEE15 /* HomeTalbleViewCell.swift in Sources */,
 				852289BB295B38DB00822216 /* HomeRouter.swift in Sources */,
 				655D027129856F4B00AEEEF0 /* UIView+.swift in Sources */,
+				85584A91299C4C5200858C7E /* RegisterStrings.swift in Sources */,
 				85EACBE32954BAC0009BEE15 /* DetailsView.swift in Sources */,
 				85EACBCF29538446009BEE15 /* CharacterAPI.swift in Sources */,
 				85EACBC929538390009BEE15 /* HomeView.swift in Sources */,
@@ -640,6 +655,7 @@
 				656B2F8729869D3B004D0586 /* UILabelDefault.swift in Sources */,
 				656B2F852986923B004D0586 /* UIButtonDefault.swift in Sources */,
 				655D026D29845E7300AEEEF0 /* LoginRouter.swift in Sources */,
+				85584A93299C4EBD00858C7E /* LoginStrings.swift in Sources */,
 				85EACBDB2953868B009BEE15 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

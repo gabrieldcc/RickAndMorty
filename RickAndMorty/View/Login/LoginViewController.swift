@@ -13,7 +13,6 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 final class LoginViewController: UIViewController {
-    
     //MARK: - Let
     let containerView = LoginView()
     weak var delegate: LoginViewControllerDelegate?
@@ -30,6 +29,7 @@ final class LoginViewController: UIViewController {
         setupRegisterButton()
     }
     
+    //MARK: - Funcs
     @objc func loginButtonTarget() {
         let email = containerView.loginTextField.text ?? ""
         let password = containerView.passwordTextField.text ?? ""
@@ -49,9 +49,25 @@ final class LoginViewController: UIViewController {
             action: #selector(loginButtonTarget),
             for: .touchUpInside
         )
+        loginSuccessHandler()
+        loginFailHandler()
+    }
+    
+    
+    private func setupRegisterButton() {
+        containerView.registerButton.addTarget(
+            self,
+            action: #selector(registerButtonTarget),
+            for: .touchUpInside)
+    }
+    
+    private func loginSuccessHandler() {
         interactor.isValidUser = { [weak self] in
             self?.delegate?.successfullLogin()
         }
+    }
+    
+    private func loginFailHandler() {
         interactor.isNotValidUser = { [weak self] erro in
             print(erro)
             UIAlertDefault.showAlert(
@@ -61,12 +77,5 @@ final class LoginViewController: UIViewController {
                 controller: self
             )
         }
-    }
-    
-    private func setupRegisterButton() {
-        containerView.registerButton.addTarget(
-            self,
-            action: #selector(registerButtonTarget),
-            for: .touchUpInside)
     }
 }
