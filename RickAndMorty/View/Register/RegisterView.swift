@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 final class RegisterView: UIView {
-    
-    
     //MARK: - Init
     init() {
         super.init(frame: .zero)
@@ -31,8 +29,6 @@ final class RegisterView: UIView {
         element.spacing = 10
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        element.layer.masksToBounds = true
-        
         return element
     }()
     
@@ -40,7 +36,6 @@ final class RegisterView: UIView {
         let element = UIView(frame: .zero)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.backgroundColor = .black
-        
         return element
     }()
     
@@ -51,7 +46,6 @@ final class RegisterView: UIView {
         element.alignment = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
@@ -62,7 +56,6 @@ final class RegisterView: UIView {
         element.alignment = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
@@ -74,14 +67,11 @@ final class RegisterView: UIView {
         element.distribution = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
     private lazy var loginLabel: UILabelDefault = {
-        let element = UILabelDefault(
-            text: "Login"
-        )
+        let element = UILabelDefault(text: "Login")
         return element
     }()
     
@@ -118,7 +108,7 @@ final class RegisterView: UIView {
     }()
 }
 
-//MARK: - ViewCodable
+    //MARK: - ViewCodable
 extension RegisterView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(loginBackgroundVStack)

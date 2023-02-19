@@ -14,15 +14,17 @@ protocol LoginRouterDelegate: AnyObject {
 }
 
 final class LoginRouter {
-    
+    //MARK: - Attributes
     var window: UIWindow
     var loginViewController: LoginViewController?
     weak var delegate: LoginRouterDelegate?
 
+    //MARK: - Init
     init(window: UIWindow) {
         self.window = window
     }
 
+    //MARK: - Funcs
     func setRootViewController() {
         loginViewController = LoginViewController()
         loginViewController?.delegate = self
@@ -31,8 +33,8 @@ final class LoginRouter {
     }
 }
 
+    //MARK: - LoginViewControllerDelegate
 extension LoginRouter: LoginViewControllerDelegate {
-    
     func signUp() {
         delegate?.signUpRouterDelegate()
     }

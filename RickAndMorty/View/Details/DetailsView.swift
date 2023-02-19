@@ -8,8 +8,7 @@
 import UIKit
 
 final class DetailsView: UIView {
-    
-    //MARK: - Var
+    //MARK: - Attributes
     var selectItem: MainData?
     var homeView = HomeView()
     
@@ -35,7 +34,6 @@ final class DetailsView: UIView {
         element.alignment = .center
         element.distribution = .fill
         element.spacing = 16
-        
         return element
     }()
     
@@ -46,7 +44,6 @@ final class DetailsView: UIView {
         element.layer.cornerRadius = 25
         element.layer.masksToBounds = true
         element.backgroundColor = .white
-        
         return element
     }()
     
@@ -62,7 +59,6 @@ final class DetailsView: UIView {
         element.layer.masksToBounds = true
         element.layer.borderColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
         element.layer.borderWidth = 1
-        
         return element
     }()
     
@@ -75,13 +71,11 @@ final class DetailsView: UIView {
         element.distribution = .fill
         element.spacing = 4
         element.backgroundColor = .black
-        
         return element
     }()
     
     lazy var nameLabel: UILabelDefault = {
         let element = UILabelDefault(text: "Name")
-        
         return element
     }()
     
@@ -92,7 +86,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -103,7 +96,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -114,7 +106,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         return element
     }()
     
@@ -125,7 +116,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -136,7 +126,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         return element
     }()
     
@@ -149,7 +138,6 @@ final class DetailsView: UIView {
         element.distribution = .fill
         element.spacing = 4
         element.backgroundColor = .black
-        
         return element
     }()
     
@@ -160,7 +148,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -171,7 +158,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         return element
     }()
     
@@ -182,7 +168,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-
         return element
     }()
     
@@ -193,7 +178,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -204,7 +188,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -215,7 +198,6 @@ final class DetailsView: UIView {
         element.font = UIFont.boldSystemFont(ofSize: 16)
         element.textAlignment = .left
         element.textColor = labelTextColor
-        
         return element
     }()
     
@@ -229,7 +211,7 @@ final class DetailsView: UIView {
     }
 }
 
-//MARK: - ViewCodable
+    //MARK: - ViewCodable
 extension DetailsView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(container)
@@ -308,5 +290,4 @@ extension DetailsView: ViewCodableProtocol {
                 constant: -8),
         ])
     }
-    
 }

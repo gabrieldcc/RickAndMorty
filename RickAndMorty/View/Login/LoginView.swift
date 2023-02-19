@@ -4,13 +4,10 @@
 //
 //  Created by Gabriel de Castro Chaves on 26/01/23.
 
-
 import Foundation
 import UIKit
 
 final class LoginView: UIView {
-    
-    
     //MARK: - Init
     init() {
         super.init(frame: .zero)
@@ -23,12 +20,10 @@ final class LoginView: UIView {
     }
     
     //MARK: - Visual Components
-    
     private lazy var rotateImageContainerView: UIView = {
         let element = UIView(frame: .zero)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.backgroundColor = .black
-        
         return element
     }()
     
@@ -40,7 +35,6 @@ final class LoginView: UIView {
         element.backgroundColor = .black
         element.image = UIImage(named: "portalRick")
         element.rotate(duration: 5)
-        
         return element
     }()
     
@@ -53,7 +47,6 @@ final class LoginView: UIView {
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
         element.layer.masksToBounds = true
-
         return element
     }()
     
@@ -61,7 +54,6 @@ final class LoginView: UIView {
         let element = UIView(frame: .zero)
         element.translatesAutoresizingMaskIntoConstraints = false
         element.backgroundColor = .black
-        
         return element
     }()
     
@@ -72,7 +64,6 @@ final class LoginView: UIView {
         element.alignment = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
@@ -83,7 +74,6 @@ final class LoginView: UIView {
         element.alignment = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
@@ -95,14 +85,11 @@ final class LoginView: UIView {
         element.distribution = .fill
         element.backgroundColor = .black
         element.layer.cornerRadius = 10
-        
         return element
     }()
     
     private lazy var loginLabel: UILabelDefault = {
-        let element = UILabelDefault(
-            text: "Login"
-        )
+        let element = UILabelDefault(text: "Login")
         return element
     }()
     
@@ -112,14 +99,11 @@ final class LoginView: UIView {
         )
         element.text = "gabrieldcc@gmail.com"
         element.autocapitalizationType = .none
-        
         return element
     }()
     
     private lazy var passwordLabel: UILabelDefault = {
-        let element = UILabelDefault(
-            text: "Senha"
-        )
+        let element = UILabelDefault(text: "Senha")
         return element
     }()
     
@@ -155,7 +139,7 @@ final class LoginView: UIView {
     }()
 }
 
-//MARK: - ViewCodable
+    //MARK: - ViewCodable
 extension LoginView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(loginBackgroundVStack)

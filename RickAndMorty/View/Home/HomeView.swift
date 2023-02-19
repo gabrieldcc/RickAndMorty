@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeView: UIView {
     
-    //MARK: - Var
+    //MARK: - Attributes
     var selectedCharacter: Character?
     var detailsView: DetailsView?
     var homeView: HomeViewController?
@@ -37,7 +37,7 @@ final class HomeView: UIView {
     }()
 }
 
-//MARK: - ViewCodable
+    //MARK: - ViewCodable
 extension HomeView: ViewCodableProtocol {
     
     func buildHierarchy() {

@@ -12,16 +12,14 @@ protocol HomeViewControllerDelegate: AnyObject {
 }
 
 final class HomeViewController: UIViewController {
-    
     //MARK: - Attributes
     let containerView = HomeView()
-    
     var mainData: MainData?
     var currentPage = 1
     weak var delegate: HomeViewControllerDelegate?
     var characterApi = CharacterAPI()
     
-    //MARK: - Lifecycle View
+    //MARK: - View Lifecycle
     override func loadView() {
         self.view = containerView
     }
@@ -35,6 +33,7 @@ final class HomeViewController: UIViewController {
         containerView.tableView.backgroundColor = .black
     }
     
+    //MARK: - Tableview
     func tableView(
         _ tableView: UITableView,
         willDisplay cell: UITableViewCell,
@@ -65,7 +64,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-//MARK: - Tableview Config
+    //MARK: - Tableview Config
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(
@@ -95,8 +94,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
               let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeTableViewCell.identifier,
                 for: indexPath) as? HomeTableViewCell else {
-            return UITableViewCell()
-        }
+                    return UITableViewCell()
+                }
         
         cell.characterImage.loadFrom(URLAddress: mainData.image)
         cell.nameLabel.text = mainData.name

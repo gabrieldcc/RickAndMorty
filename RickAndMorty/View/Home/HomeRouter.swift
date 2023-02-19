@@ -8,16 +8,18 @@
 import Foundation
 import UIKit
 
-class HomeRouter {
-    
+final class HomeRouter {
+    //MARK: - Attributes
     var window: UIWindow?
     var homeViewController: HomeViewController?
     var navigationController: UINavigationController?
     
+    //MARK: - Init
     init(window: UIWindow) {
         self.window = window
     }
     
+    //MARK: - Funcs
     func showDetails(of character: Character) {
         let controller = DetailsViewController()
         controller.character = character
@@ -37,7 +39,8 @@ class HomeRouter {
         window?.makeKeyAndVisible()
     }
 }
-
+    
+    //MARK: - HomeViewControllerDelegate
 extension HomeRouter: HomeViewControllerDelegate {
     func show(character: Character) {
         showDetails(of: character)

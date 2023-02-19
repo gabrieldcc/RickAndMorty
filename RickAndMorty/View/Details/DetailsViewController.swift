@@ -8,11 +8,8 @@
 import UIKit
 
 final class DetailsViewController: UIViewController {
-    
-    //MARK: - Var
+    //MARK: - Attributes
     var character: Character?
-    
-    //MARK: - Let
     private let containerView = DetailsView()
     
     //MARK: -  View Lifecycle

@@ -12,7 +12,7 @@ import FirebaseAuth
 protocol RegisterViewControllerDelegate: AnyObject {}
 
 class RegisterViewController: UIViewController {
-    //MARK: - Vars
+    //MARK: - Attributes
     let containerView = RegisterView()
     weak var delegate: RegisterViewControllerDelegate?
     var interactor = RegisterInteractor()

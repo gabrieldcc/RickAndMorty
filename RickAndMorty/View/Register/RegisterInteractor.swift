@@ -8,10 +8,11 @@
 import FirebaseAuth
 
 final class RegisterInteractor {
-    
+    //MARK: - Attributes
     var isNotUserValid: (()-> Void)?
     var isUserValid: (()-> Void)?
     
+    //MARK: - Funcs
     func createUser(email: String, password: String) {
         Auth.auth().createUser(
             withEmail: email,

@@ -13,12 +13,12 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 final class LoginViewController: UIViewController {
-    //MARK: - Let
+    //MARK: - Attributes
     let containerView = LoginView()
     weak var delegate: LoginViewControllerDelegate?
     var interactor = LoginInteractor()
     
-    //MARK: - Lifecycle View
+    //MARK: - View Lifecycle
     override func loadView() {
         self.view = containerView
     }
@@ -52,7 +52,6 @@ final class LoginViewController: UIViewController {
         loginSuccessHandler()
         loginFailHandler()
     }
-    
     
     private func setupRegisterButton() {
         containerView.registerButton.addTarget(

@@ -9,14 +9,15 @@ import Foundation
 import UIKit
 
 final class RegisterRouter: RegisterViewControllerDelegate {
-    
+    //MARK: - Attributes
     var window: UIWindow
     var registerViewController: RegisterViewController?
 
     init(window: UIWindow) {
         self.window = window
     }
-
+    
+    //MARK: - Funcs
     func setRootViewController() {
         registerViewController = RegisterViewController()
         registerViewController?.delegate = self
