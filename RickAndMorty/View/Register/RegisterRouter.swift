@@ -12,7 +12,6 @@ final class RegisterRouter: RegisterViewControllerDelegate {
     
     var window: UIWindow
     var registerViewController: RegisterViewController?
-    //weak var delegate: RegisterRouterDelegate?
 
     init(window: UIWindow) {
         self.window = window
@@ -21,7 +20,7 @@ final class RegisterRouter: RegisterViewControllerDelegate {
     func setRootViewController() {
         registerViewController = RegisterViewController()
         registerViewController?.delegate = self
-        window.rootViewController = registerViewController
+        window.rootViewController = UINavigationController(rootViewController: registerViewController ?? UINavigationController())
         window.makeKeyAndVisible()
     }
 }

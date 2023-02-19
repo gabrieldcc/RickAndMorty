@@ -26,6 +26,7 @@
 		8500F222299826F80051EE51 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F221299826F80051EE51 /* RegisterRouter.swift */; };
 		8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F223299827070051EE51 /* RegisterInteractor.swift */; };
 		852289BB295B38DB00822216 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeRouter.swift */; };
+		855156EC29A2455900AE5A98 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855156EB29A2455900AE5A98 /* Logger.swift */; };
 		85584A8E299840D200858C7E /* UIAlertDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A8D299840D200858C7E /* UIAlertDefault.swift */; };
 		85584A91299C4C5200858C7E /* RegisterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A90299C4C5200858C7E /* RegisterStrings.swift */; };
 		85584A93299C4EBD00858C7E /* LoginStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A92299C4EBC00858C7E /* LoginStrings.swift */; };
@@ -91,6 +92,7 @@
 		8500F221299826F80051EE51 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		8500F223299827070051EE51 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		852289BA295B38DB00822216 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		855156EB29A2455900AE5A98 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		85584A8D299840D200858C7E /* UIAlertDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertDefault.swift; sourceTree = "<group>"; };
 		85584A90299C4C5200858C7E /* RegisterStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStrings.swift; sourceTree = "<group>"; };
 		85584A92299C4EBC00858C7E /* LoginStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStrings.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				85EACBEB2954BB4F009BEE15 /* ViewCodableProtocol.swift */,
+				855156EB29A2455900AE5A98 /* Logger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */,
 				8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */,
 				653B2F512983473500297AAB /* LoginViewController.swift in Sources */,
+				855156EC29A2455900AE5A98 /* Logger.swift in Sources */,
 				656B2F8D298EC2D4004D0586 /* UserLogin.swift in Sources */,
 				85EACBE52954BACB009BEE15 /* DetailsViewController.swift in Sources */,
 				656B2F9729966F73004D0586 /* RegisterViewController.swift in Sources */,
