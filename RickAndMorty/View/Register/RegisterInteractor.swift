@@ -12,7 +12,7 @@ final class RegisterInteractor {
     var isNotUserValid: (()-> Void)?
     var isUserValid: (()-> Void)?
     
-     func createUser(email: String, password: String) {
+    func createUser(email: String, password: String) {
         Auth.auth().createUser(
             withEmail: email,
             password: password) {
@@ -25,5 +25,4 @@ final class RegisterInteractor {
                 }
             }
     }
-    
 }
