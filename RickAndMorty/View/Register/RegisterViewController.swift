@@ -11,7 +11,6 @@ import FirebaseAuth
 
 protocol RegisterViewControllerDelegate: AnyObject {}
 
-
 class RegisterViewController: UIViewController {
     //MARK: - Vars
     let containerView = RegisterView()
