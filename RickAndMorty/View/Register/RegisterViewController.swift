@@ -18,7 +18,6 @@ class RegisterViewController: UIViewController {
     weak var delegate: RegisterViewControllerDelegate?
     var interactor = RegisterInteractor()
     
-    
     //MARK: - View lifecycle
     override func loadView() {
         super.loadView()
@@ -48,7 +47,6 @@ class RegisterViewController: UIViewController {
         singUpSuccessHandler()
         singUpFailHandler()
     }
-    
     
     func singUpSuccessHandler() {
         interactor.isUserValid = { [weak self] in

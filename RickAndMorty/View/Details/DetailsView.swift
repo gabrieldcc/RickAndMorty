@@ -227,10 +227,8 @@ final class DetailsView: UIView {
         originLabel.text = character.origin.name
         characterImage.loadFrom(URLAddress: character.image)
     }
-    
-    
-    
 }
+
 //MARK: - ViewCodable
 extension DetailsView: ViewCodableProtocol {
     func buildHierarchy() {
@@ -284,7 +282,7 @@ extension DetailsView: ViewCodableProtocol {
                 constant: 40),
             
             characterImage.widthAnchor.constraint(equalToConstant: 320),
-            characterImage.heightAnchor.constraint(equalToConstant: 400),
+            characterImage.heightAnchor.constraint(equalToConstant: 320),
             
             nameLabel.widthAnchor.constraint(equalToConstant: 100),
             nameDinamicLabel.widthAnchor.constraint(equalToConstant: 220),
