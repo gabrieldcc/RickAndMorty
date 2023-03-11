@@ -19,7 +19,7 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Visual Components
+    //MARK: - Visual Components 
     private lazy var rotateImageContainerView: UIView = {
         let element = UIView(frame: .zero)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -113,6 +113,7 @@ final class LoginView: UIView {
         )
         element.text = "Gabriel98$"
         element.autocapitalizationType = .none
+        element.isSecureTextEntry = true
         return element
     }()
     

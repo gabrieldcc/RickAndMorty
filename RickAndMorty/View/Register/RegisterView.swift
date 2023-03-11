@@ -80,6 +80,7 @@ final class RegisterView: UIView {
             placeholder: "  Digite seu login"
         )
         element.text = "Gabrieldcc"
+        element.autocapitalizationType = .none
         return element
     }()
     
@@ -95,6 +96,8 @@ final class RegisterView: UIView {
             placeholder: "  Digite sua senha"
         )
         element.text = "Gabriel98$"
+        element.autocapitalizationType = .none
+        element.isSecureTextEntry = true
         return element
     }()
     
@@ -104,6 +107,18 @@ final class RegisterView: UIView {
             target: self,
             forEvent: .touchUpInside
         )
+        element.setTitleColor(.black, for: .normal)
+        return element
+    }()
+    
+    lazy var loginButton: UIButtonDefault = {
+        let element = UIButtonDefault(
+            title: "Login",
+            target: self,
+            forEvent: .touchUpInside
+        )
+        element.backgroundColor = .white
+        element.setTitleColor(.black, for: .normal)
         return element
     }()
 }
@@ -113,6 +128,7 @@ extension RegisterView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(loginBackgroundVStack)
         addSubview(signUpButton)
+        addSubview(loginButton)
         containerView.addSubview(containerVStack)
         
         ViewCodable.addArrangedSubviews(
@@ -221,9 +237,25 @@ extension RegisterView: ViewCodableProtocol {
                 constant: defaultSizeN
             ),
             signUpButton.bottomAnchor.constraint(
+                equalTo: loginButton.topAnchor,
+                constant: defaultSizeN
+            ),
+            
+            loginButton.heightAnchor.constraint(
+                equalToConstant: defaultSize
+            ),
+            loginButton.leadingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.leadingAnchor,
+                constant: defaultSize
+            ),
+            loginButton.trailingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.trailingAnchor,
+                constant: defaultSizeN
+            ),
+            loginButton.bottomAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.bottomAnchor,
                 constant: defaultSizeN
-            )
+            ),
         ])
     }
 }
