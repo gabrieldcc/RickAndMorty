@@ -118,29 +118,13 @@ extension RegisterView: ViewCodableProtocol {
         addSubview(mainStack)
         addSubview(signUpButton)
         containerView.addSubview(containerVStack)
-        
-        ViewCodable.addArrangedSubviews(stackView: mainStack,subviews: [containerView])
-        ViewCodable.addArrangedSubviews(
-            stackView: containerVStack,
-            subviews: [
-                loginContainerVStack,
-                passwordContainerVStack
-            ]
-        )
-        ViewCodable.addArrangedSubviews(
-            stackView: loginContainerVStack,
-            subviews: [
-                loginLabel,
-                loginTextField,
-            ]
-        )
-        ViewCodable.addArrangedSubviews(
-            stackView: passwordContainerVStack,
-            subviews: [
-                passwordLabel,
-                passwordTextField,
-            ]
-        )
+        mainStack.addArrangedSubview(containerView)
+        containerVStack.addArrangedSubview(loginContainerVStack)
+        containerVStack.addArrangedSubview(passwordContainerVStack)
+        loginContainerVStack.addArrangedSubview(loginLabel)
+        loginContainerVStack.addArrangedSubview(loginTextField)
+        passwordContainerVStack.addArrangedSubview(passwordLabel)
+        passwordContainerVStack.addArrangedSubview(passwordTextField)
     }
     
     func setupConstraints() {

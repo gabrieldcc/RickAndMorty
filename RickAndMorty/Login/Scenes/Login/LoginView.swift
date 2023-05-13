@@ -150,34 +150,19 @@ extension LoginView: ViewCodableProtocol {
         containerView.addSubview(containerVStack)
         rotateImageContainerView.addSubview(rotateImage)
         
-        ViewCodable.addArrangedSubviews(
-            stackView: loginBackgroundVStack,
-            subviews: [containerView]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: containerVStack,
-            subviews: [
+        loginBackgroundVStack.addArrangedSubview(containerView)
+        containerVStack.addArrangedSubviews([
                 loginContainerVStack,
                 passwordContainerVStack
-            ]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: loginContainerVStack,
-            subviews: [
+            ])
+        loginContainerVStack.addArrangedSubviews([
                 loginLabel,
                 loginTextField,
-            ]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: passwordContainerVStack,
-            subviews: [
+            ])
+        passwordContainerVStack.addArrangedSubviews([
                 passwordLabel,
                 passwordTextField,
-            ]
-        )
+            ])
     }
     
     func setupConstraints() {

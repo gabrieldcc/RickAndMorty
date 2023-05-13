@@ -20,14 +20,7 @@ public extension ViewCodableProtocol {
         setupConstraints()
         applyAdditionalChanges()
     }
-
+    
     func applyAdditionalChanges() {}
 }
 
-class ViewCodable {
-    class func addArrangedSubviews(stackView: UIStackView, subviews: [UIView]) {
-        for view in subviews {
-            stackView.addArrangedSubview(view)
-        }
-    }
-}

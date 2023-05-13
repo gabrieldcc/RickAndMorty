@@ -215,40 +215,31 @@ final class DetailsView: UIView {
 extension DetailsView: ViewCodableProtocol {
     func buildHierarchy() {
         addSubview(container)
+        container.addArrangedSubviews([
+            characterImage,
+            containerLabelsHStack
+        ])
+        containerLabelsHStack.addArrangedSubviews([
+            titleLabelsVStack,
+            dinamicLabelsVStack
+        ])
         
-        ViewCodable.addArrangedSubviews(
-            stackView: container,
-            subviews: [characterImage, containerLabelsHStack]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: containerLabelsHStack,
-            subviews: [titleLabelsVStack, dinamicLabelsVStack]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: titleLabelsVStack,
-            subviews: [
-                nameLabel,
-                statusLabel,
-                speciesLabel,
-                genderLabel,
-                originLabel,
-                lastSeenInLabel
-            ]
-        )
-        
-        ViewCodable.addArrangedSubviews(
-            stackView: dinamicLabelsVStack,
-            subviews: [
-                nameDinamicLabel,
-                statusDinamicLabel,
-                speciesDinamicLabel,
-                genderDinamicLabel,
-                originDinamicLabel,
-                lastSeenInDinamicLabel
-            ]
-        )
+        titleLabelsVStack.addArrangedSubviews([
+            nameLabel,
+            statusLabel,
+            speciesLabel,
+            genderLabel,
+            originLabel,
+            lastSeenInLabel
+        ])
+        dinamicLabelsVStack.addArrangedSubviews([
+            nameDinamicLabel,
+            statusDinamicLabel,
+            speciesDinamicLabel,
+            genderDinamicLabel,
+            originDinamicLabel,
+            lastSeenInDinamicLabel
+        ])
     }
     
     func setupConstraints() {

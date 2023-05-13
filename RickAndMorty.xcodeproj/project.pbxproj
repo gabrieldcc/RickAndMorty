@@ -30,6 +30,7 @@
 		85584A91299C4C5200858C7E /* RegisterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A90299C4C5200858C7E /* RegisterStrings.swift */; };
 		85584A93299C4EBD00858C7E /* LoginStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A92299C4EBC00858C7E /* LoginStrings.swift */; };
 		85AC0EC72A0FDBBF00A00992 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC0EC62A0FDBBF00A00992 /* HomeRepository.swift */; };
+		85AC0ECC2A0FEDC200A00992 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC0ECB2A0FEDC200A00992 /* UIStackView+.swift */; };
 		85EACB9329537FC1009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9229537FC1009BEE15 /* AppDelegate.swift */; };
 		85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9429537FC1009BEE15 /* SceneDelegate.swift */; };
 		85EACB9729537FC1009BEE15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EACB9629537FC1009BEE15 /* HomeViewController.swift */; };
@@ -95,6 +96,7 @@
 		85584A90299C4C5200858C7E /* RegisterStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStrings.swift; sourceTree = "<group>"; };
 		85584A92299C4EBC00858C7E /* LoginStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStrings.swift; sourceTree = "<group>"; };
 		85AC0EC62A0FDBBF00A00992 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		85AC0ECB2A0FEDC200A00992 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		85EACB8F29537FC1009BEE15 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EACB9229537FC1009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EACB9429537FC1009BEE15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		85EACBE62954BB09009BEE15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				85AC0ECB2A0FEDC200A00992 /* UIStackView+.swift */,
 				85EACBE72954BB1B009BEE15 /* UIImageView+.swift */,
 				655D027029856F4B00AEEEF0 /* UIView+.swift */,
 				656B2F9129966B2D004D0586 /* UITextField+.swift */,
@@ -661,6 +664,7 @@
 				85EACBEC2954BB4F009BEE15 /* ViewCodableProtocol.swift in Sources */,
 				656B2F9529966F4C004D0586 /* RegisterView.swift in Sources */,
 				656B2F8929869E5B004D0586 /* UITextFieldDefault.swift in Sources */,
+				85AC0ECC2A0FEDC200A00992 /* UIStackView+.swift in Sources */,
 				85584A8E299840D200858C7E /* UIAlertDefault.swift in Sources */,
 				85EACBCC295383CE009BEE15 /* HomeTalbleViewCell.swift in Sources */,
 				852289BB295B38DB00822216 /* HomeRouter.swift in Sources */,
