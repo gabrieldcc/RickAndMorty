@@ -1,13 +1,13 @@
 //
-//  CharacterAPI.swift
+//  HomeRepository.swift
 //  RickAndMorty
 //
-//  Created by Gabriel de Castro Chaves on 21/12/22.
+//  Created by Gabriel de Castro Chaves on 13/05/23.
 //
 
 import Foundation
 
-final class CharacterAPI {
+final class HomeRepository {
     
     func makeRequest(
         nextPage: Int,

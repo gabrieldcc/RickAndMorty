@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     var mainData: MainData?
     var currentPage = 1
     weak var delegate: HomeViewControllerDelegate?
-    var characterApi = CharacterAPI()
+    var characterApi = HomeRepository()
     
     //MARK: - View Lifecycle
     override func loadView() {
