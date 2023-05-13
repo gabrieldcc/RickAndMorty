@@ -26,7 +26,6 @@
 		8500F222299826F80051EE51 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F221299826F80051EE51 /* RegisterRouter.swift */; };
 		8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500F223299827070051EE51 /* RegisterInteractor.swift */; };
 		852289BB295B38DB00822216 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852289BA295B38DB00822216 /* HomeRouter.swift */; };
-		855156EC29A2455900AE5A98 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855156EB29A2455900AE5A98 /* Logger.swift */; };
 		85584A8E299840D200858C7E /* UIAlertDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A8D299840D200858C7E /* UIAlertDefault.swift */; };
 		85584A91299C4C5200858C7E /* RegisterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A90299C4C5200858C7E /* RegisterStrings.swift */; };
 		85584A93299C4EBD00858C7E /* LoginStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85584A92299C4EBC00858C7E /* LoginStrings.swift */; };
@@ -92,7 +91,6 @@
 		8500F221299826F80051EE51 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		8500F223299827070051EE51 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		852289BA295B38DB00822216 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		855156EB29A2455900AE5A98 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		85584A8D299840D200858C7E /* UIAlertDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertDefault.swift; sourceTree = "<group>"; };
 		85584A90299C4C5200858C7E /* RegisterStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStrings.swift; sourceTree = "<group>"; };
 		85584A92299C4EBC00858C7E /* LoginStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStrings.swift; sourceTree = "<group>"; };
@@ -156,10 +154,10 @@
 		653B2F4F2983472600297AAB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				653B2F502983473500297AAB /* LoginViewController.swift */,
-				653B2F522983475400297AAB /* LoginView.swift */,
-				656B2F8A298EC253004D0586 /* LoginInteractor.swift */,
-				655D026C29845E7300AEEEF0 /* LoginRouter.swift */,
+				85AC0EC22A0FDA5C00A00992 /* Scenes */,
+				85584A8F299C4C1200858C7E /* Reusables */,
+				656B2F9329966F32004D0586 /* Register */,
+				656B2F8E2992EE0E004D0586 /* Models */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -202,13 +200,41 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		85584A8F299C4C1200858C7E /* String */ = {
+		85584A8F299C4C1200858C7E /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				85AC0EC12A0FDA3800A00992 /* Strings */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		85AC0EC12A0FDA3800A00992 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
 				85584A90299C4C5200858C7E /* RegisterStrings.swift */,
 				85584A92299C4EBC00858C7E /* LoginStrings.swift */,
 			);
-			path = String;
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		85AC0EC22A0FDA5C00A00992 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				85EACBC729538369009BEE15 /* Home */,
+				85AC0EC32A0FDA7300A00992 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		85AC0EC32A0FDA7300A00992 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				653B2F502983473500297AAB /* LoginViewController.swift */,
+				653B2F522983475400297AAB /* LoginView.swift */,
+				656B2F8A298EC253004D0586 /* LoginInteractor.swift */,
+				655D026C29845E7300AEEEF0 /* LoginRouter.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		85EACB8629537FC1009BEE15 = {
@@ -238,14 +264,12 @@
 			children = (
 				85EACBA029537FC3009BEE15 /* Info.plist */,
 				8500F21F29981BED0051EE51 /* GoogleService-Info.plist */,
-				85584A8F299C4C1200858C7E /* String */,
 				85EACBC32953814E009BEE15 /* AppDelegate */,
 				85EACBE62954BB09009BEE15 /* Extensions */,
 				655D0274298690D900AEEEF0 /* UIComponents */,
 				85EACBC42953815B009BEE15 /* Resources */,
-				85EACBE92954BB32009BEE15 /* Utilities */,
-				656B2F8E2992EE0E004D0586 /* Models */,
-				85EACBC229538148009BEE15 /* View */,
+				85EACBE92954BB32009BEE15 /* Protocols */,
+				653B2F4F2983472600297AAB /* Login */,
 			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
@@ -265,17 +289,6 @@
 				85EACBB529537FC3009BEE15 /* RickAndMortyUITestsLaunchTests.swift */,
 			);
 			path = RickAndMortyUITests;
-			sourceTree = "<group>";
-		};
-		85EACBC229538148009BEE15 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				656B2F9329966F32004D0586 /* Register */,
-				653B2F4F2983472600297AAB /* Login */,
-				85EACBC729538369009BEE15 /* Home */,
-				85EACBE02954BA97009BEE15 /* Details */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		85EACBC32953814E009BEE15 /* AppDelegate */ = {
@@ -300,6 +313,7 @@
 		85EACBC729538369009BEE15 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				85EACBE02954BA97009BEE15 /* Details */,
 				85EACB9629537FC1009BEE15 /* HomeViewController.swift */,
 				85EACBC829538390009BEE15 /* HomeView.swift */,
 				852289BA295B38DB00822216 /* HomeRouter.swift */,
@@ -356,13 +370,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		85EACBE92954BB32009BEE15 /* Utilities */ = {
+		85EACBE92954BB32009BEE15 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				85EACBEB2954BB4F009BEE15 /* ViewCodableProtocol.swift */,
-				855156EB29A2455900AE5A98 /* Logger.swift */,
 			);
-			path = Utilities;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		912791239EFDA23C9EBE66E8 /* Frameworks */ = {
@@ -652,7 +665,6 @@
 				85EACB9529537FC1009BEE15 /* SceneDelegate.swift in Sources */,
 				8500F224299827070051EE51 /* RegisterInteractor.swift in Sources */,
 				653B2F512983473500297AAB /* LoginViewController.swift in Sources */,
-				855156EC29A2455900AE5A98 /* Logger.swift in Sources */,
 				656B2F8D298EC2D4004D0586 /* UserLogin.swift in Sources */,
 				85EACBE52954BACB009BEE15 /* DetailsViewController.swift in Sources */,
 				656B2F9729966F73004D0586 /* RegisterViewController.swift in Sources */,
