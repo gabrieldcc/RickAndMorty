@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
-final class RegisterRouter: RegisterViewControllerDelegate {
+protocol RegisterRouterDelegate: AnyObject {
+    func loginRouterDelegate()
+}
+
+final class RegisterRouter {
     //MARK: - Attributes
     var window: UIWindow
     var registerViewController: RegisterViewController?
+    weak var delegate: RegisterRouterDelegate?
 
     init(window: UIWindow) {
         self.window = window
@@ -23,5 +28,11 @@ final class RegisterRouter: RegisterViewControllerDelegate {
         registerViewController?.delegate = self
         window.rootViewController = UINavigationController(rootViewController: registerViewController ?? UINavigationController())
         window.makeKeyAndVisible()
+    }
+}
+
+extension RegisterRouter: RegisterViewControllerDelegate {
+    func goToLoginScreen() {
+        self.delegate?.loginRouterDelegate()
     }
 }

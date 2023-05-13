@@ -10,7 +10,7 @@ import UIKit
 
 protocol LoginRouterDelegate: AnyObject {
     func successfullLoginRouterDelegate()
-    func signUpRouterDelegate()
+    func    signUpRouterDelegate()
 }
 
 final class LoginRouter {
@@ -36,7 +36,7 @@ final class LoginRouter {
     //MARK: - LoginViewControllerDelegate
 extension LoginRouter: LoginViewControllerDelegate {
     func signUp() {
-        delegate?.signUpRouterDelegate()
+        self.delegate?.signUpRouterDelegate()
     }
     
     func successfullLogin() {

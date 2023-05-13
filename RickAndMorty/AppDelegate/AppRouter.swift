@@ -40,6 +40,7 @@ class AppRouter {
     }
 }
 
+    //MARK: - LoginRouterDelegate
 extension AppRouter: LoginRouterDelegate {
     func signUpRouterDelegate() {
         setRegisterRouter()
@@ -47,5 +48,12 @@ extension AppRouter: LoginRouterDelegate {
     
     func successfullLoginRouterDelegate() {
         setHomeRouter()
+    }
+}
+
+//MARK: - RegisterRouterDelegate
+extension AppRouter: RegisterRouterDelegate {
+    func loginRouterDelegate() {
+        setLoginRouter()
     }
 }
