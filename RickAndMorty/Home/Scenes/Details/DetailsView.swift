@@ -11,8 +11,6 @@ final class DetailsView: UIView {
     //MARK: - Attributes
     var selectItem: MainData?
     var homeView = HomeView()
-    
-    //MARK: - Let
     private let labelTextColor: UIColor = .white
     
     //MARK: - Init
@@ -223,7 +221,6 @@ extension DetailsView: ViewCodableProtocol {
             titleLabelsVStack,
             dinamicLabelsVStack
         ])
-        
         titleLabelsVStack.addArrangedSubviews([
             nameLabel,
             statusLabel,
