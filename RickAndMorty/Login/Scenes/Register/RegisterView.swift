@@ -21,7 +21,7 @@ final class RegisterView: UIView {
     }
     
     //MARK: - Visual Components
-    private lazy var loginBackgroundVStack: UIStackView = {
+    private lazy var mainStack: UIStackView = {
         let element = UIStackView(frame: .zero)
         let green: CGColor = .init(red: 0, green: 255, blue: 0, alpha: 1)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -103,21 +103,10 @@ final class RegisterView: UIView {
     
     lazy var signUpButton: UIButtonDefault = {
         let element = UIButtonDefault(
-            title: "Sing Up",
+            title: "Finalizar cadastro",
             target: self,
             forEvent: .touchUpInside
         )
-        element.setTitleColor(.black, for: .normal)
-        return element
-    }()
-    
-    lazy var loginButton: UIButtonDefault = {
-        let element = UIButtonDefault(
-            title: "Login",
-            target: self,
-            forEvent: .touchUpInside
-        )
-        element.backgroundColor = .white
         element.setTitleColor(.black, for: .normal)
         return element
     }()
@@ -126,16 +115,11 @@ final class RegisterView: UIView {
     //MARK: - ViewCodable
 extension RegisterView: ViewCodableProtocol {
     func buildHierarchy() {
-        addSubview(loginBackgroundVStack)
+        addSubview(mainStack)
         addSubview(signUpButton)
-        addSubview(loginButton)
         containerView.addSubview(containerVStack)
         
-        ViewCodable.addArrangedSubviews(
-            stackView: loginBackgroundVStack,
-            subviews: [containerView]
-        )
-        
+        ViewCodable.addArrangedSubviews(stackView: mainStack,subviews: [containerView])
         ViewCodable.addArrangedSubviews(
             stackView: containerVStack,
             subviews: [
@@ -143,7 +127,6 @@ extension RegisterView: ViewCodableProtocol {
                 passwordContainerVStack
             ]
         )
-        
         ViewCodable.addArrangedSubviews(
             stackView: loginContainerVStack,
             subviews: [
@@ -151,7 +134,6 @@ extension RegisterView: ViewCodableProtocol {
                 loginTextField,
             ]
         )
-        
         ViewCodable.addArrangedSubviews(
             stackView: passwordContainerVStack,
             subviews: [
@@ -162,100 +144,38 @@ extension RegisterView: ViewCodableProtocol {
     }
     
     func setupConstraints() {
-        let defaultSize: CGFloat = 44
-        let defaultSizeN: CGFloat = -44
+        let constraintDefault: CGFloat = 44
+        let constraintDefaultNegative: CGFloat = -44
         
         NSLayoutConstraint.activate([
-            loginBackgroundVStack.topAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.topAnchor, constant: defaultSize
-            ),
-            loginBackgroundVStack.centerXAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.centerXAnchor
-            ),
-            loginBackgroundVStack.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor,
-                constant: defaultSize
-            ),
-            loginBackgroundVStack.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor,
-                constant: defaultSizeN
-            ),
+            mainStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: constraintDefault),
+            mainStack.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            mainStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: constraintDefault),
+            mainStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: constraintDefaultNegative),
             
             
-            containerView.topAnchor.constraint(
-                equalTo: loginBackgroundVStack.topAnchor
-            ),
-            containerView.bottomAnchor.constraint(
-                equalTo: loginBackgroundVStack.bottomAnchor
-            ),
-            containerView.leadingAnchor.constraint(
-                equalTo: loginBackgroundVStack.leadingAnchor
-            ),
-            containerView.trailingAnchor.constraint(
-                equalTo: loginBackgroundVStack.trailingAnchor
-            ),
+            containerView.topAnchor.constraint(equalTo: mainStack.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor),
             
-            containerVStack.topAnchor.constraint(
-                equalTo: containerView.topAnchor,
-                constant: 10
-            ),
-            containerVStack.bottomAnchor.constraint(
-                equalTo: containerView.bottomAnchor,
-                constant: -10
-            ),
-            containerVStack.leadingAnchor.constraint(
-                equalTo: containerView.leadingAnchor,
-                constant: 10
-            ),
-            containerVStack.trailingAnchor.constraint(
-                equalTo: containerView.trailingAnchor,
-                constant: -10
-            ),
+            containerVStack.topAnchor.constraint(equalTo: containerView.topAnchor,constant: 10),
+            containerVStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -10),
+            containerVStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,constant: 10),
+            containerVStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,constant: -10),
             
-            loginLabel.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
-            loginTextField.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
-            passwordLabel.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
-            passwordTextField.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
+            loginLabel.heightAnchor.constraint(equalToConstant: constraintDefault),
             
-            signUpButton.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
-            signUpButton.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor,
-                constant: defaultSize
-            ),
-            signUpButton.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor,
-                constant: defaultSizeN
-            ),
-            signUpButton.bottomAnchor.constraint(
-                equalTo: loginButton.topAnchor,
-                constant: defaultSizeN
-            ),
+            loginTextField.heightAnchor.constraint(equalToConstant: constraintDefault),
             
-            loginButton.heightAnchor.constraint(
-                equalToConstant: defaultSize
-            ),
-            loginButton.leadingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.leadingAnchor,
-                constant: defaultSize
-            ),
-            loginButton.trailingAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.trailingAnchor,
-                constant: defaultSizeN
-            ),
-            loginButton.bottomAnchor.constraint(
-                equalTo: safeAreaLayoutGuide.bottomAnchor,
-                constant: defaultSizeN
-            ),
+            passwordLabel.heightAnchor.constraint(equalToConstant: constraintDefault),
+            
+            passwordTextField.heightAnchor.constraint(equalToConstant: constraintDefault),
+            
+            signUpButton.heightAnchor.constraint(equalToConstant: constraintDefault),
+            signUpButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: constraintDefault),
+            signUpButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: constraintDefaultNegative),
+            signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: constraintDefaultNegative),
         ])
     }
 }

@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class HomeRepository {
+protocol HomeRepositoryProtocol: AnyObject {
+    func makeRequest(nextPage: Int, completion: @escaping (MainData) -> ())
+}
+
+final class HomeRepository: HomeRepositoryProtocol {
     
     func makeRequest(
         nextPage: Int,

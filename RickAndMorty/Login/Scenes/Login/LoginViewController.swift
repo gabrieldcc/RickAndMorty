@@ -40,7 +40,9 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func registerButtonTarget() {
-        self.delegate?.signUp()
+        //self.delegate?.signUp()
+        let registerViewController = RegisterViewController()
+        self.navigationController?.pushViewController(registerViewController, animated: true)
     }
     
     private func setupLoginButton() {

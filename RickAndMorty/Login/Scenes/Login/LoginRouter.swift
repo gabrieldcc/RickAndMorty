@@ -10,7 +10,7 @@ import UIKit
 
 protocol LoginRouterDelegate: AnyObject {
     func successfullLoginRouterDelegate()
-    func    signUpRouterDelegate()
+    func signUpRouterDelegate()
 }
 
 final class LoginRouter {
@@ -28,7 +28,11 @@ final class LoginRouter {
     func setRootViewController() {
         loginViewController = LoginViewController()
         loginViewController?.delegate = self
-        window.rootViewController = loginViewController
+        let navigationDefault = UINavigationController()
+        let navigation = UINavigationController(
+            rootViewController: loginViewController ?? navigationDefault
+        )
+        window.rootViewController = navigation
         window.makeKeyAndVisible()
     }
 }

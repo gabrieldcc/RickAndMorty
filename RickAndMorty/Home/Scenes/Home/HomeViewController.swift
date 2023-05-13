@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     var mainData: MainData?
     var currentPage = 1
     weak var delegate: HomeViewControllerDelegate?
-    var characterApi = HomeRepository()
+    let repository = HomeRepository()
     
     //MARK: - View Lifecycle
     override func loadView() {
@@ -26,32 +26,14 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerView.tableView.delegate = self
-        containerView.tableView.dataSource = self
+        self.view.backgroundColor = .black
+        setupTableView()
         apiRequest()
-        view.backgroundColor = .black
-        containerView.tableView.backgroundColor = .black
     }
-    
-    //MARK: - Tableview
-    func tableView(
-        _ tableView: UITableView,
-        willDisplay cell: UITableViewCell,
-        forRowAt indexPath: IndexPath
-    ) {
-        let isCurrentPageLowerThanPages =
-        currentPage <= mainData?.info.pages ?? 0
-        let isLatestItem =
-        indexPath.row == (mainData?.results.count ?? 0) - 2
-        if isLatestItem && isCurrentPageLowerThanPages {
-            apiRequest()
-            currentPage += 1
-        }
-    }
-    
+
     //MARK: - API Request
     private func apiRequest() {
-        characterApi.makeRequest(nextPage: currentPage) {
+        repository.makeRequest(nextPage: currentPage) {
             [weak self] mainData in
             guard let self = self else { return }
             if self.mainData?.results == nil {
@@ -67,28 +49,24 @@ final class HomeViewController: UIViewController {
     //MARK: - Tableview Config
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(
-        _ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath
-    ) {
+    private func setupTableView() {
+        containerView.tableView.delegate = self
+        containerView.tableView.dataSource = self
+        containerView.tableView.backgroundColor = .black
+    }
+    
+    func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
         if let character = self.mainData?.results[indexPath.row] {
             delegate?.show(character: character)
         }
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
+    func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = mainData?.results.count ?? 0
-        
         return numberOfRows
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let mainData = mainData?.results[indexPath.row],
               let cell = tableView.dequeueReusableCell(
@@ -113,12 +91,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        heightForRowAt indexPath: IndexPath
-    ) -> CGFloat {
-        
+    func tableView(_ tableView: UITableView,heightForRowAt indexPath: IndexPath) -> CGFloat {
         return HomeTableViewCell.cellSize
+    }
+    
+    func tableView(_ tableView: UITableView,willDisplay cell: UITableViewCell,forRowAt indexPath: IndexPath) {
+        let isCurrentPageLowerThanPages =
+        currentPage <= mainData?.info.pages ?? 0
+        let isLatestItem =
+        indexPath.row == (mainData?.results.count ?? 0) - 2
+        if isLatestItem && isCurrentPageLowerThanPages {
+            apiRequest()
+            currentPage += 1
+        }
     }
 }
 

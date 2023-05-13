@@ -119,7 +119,7 @@ final class LoginView: UIView {
     
     lazy var loginButton: UIButtonDefault = {
         let element = UIButtonDefault(
-            title: "Login",
+            title: "Fazer login",
             target: self,
             forEvent: .touchUpInside
         )
@@ -130,7 +130,7 @@ final class LoginView: UIView {
     
     lazy var registerButton: UIButtonDefault = {
         let element = UIButtonDefault(
-            title: "Register",
+            title: "Cadastrar-se",
             target: self,
             forEvent: .touchUpInside
         )

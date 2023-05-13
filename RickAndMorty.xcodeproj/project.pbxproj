@@ -154,10 +154,9 @@
 		653B2F4F2983472600297AAB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				85AC0EC22A0FDA5C00A00992 /* Scenes */,
 				85584A8F299C4C1200858C7E /* Reusables */,
-				656B2F9329966F32004D0586 /* Register */,
 				656B2F8E2992EE0E004D0586 /* Models */,
+				85AC0EC22A0FDA5C00A00992 /* Scenes */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -221,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				85AC0EC32A0FDA7300A00992 /* Login */,
+				656B2F9329966F32004D0586 /* Register */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -346,7 +346,6 @@
 			children = (
 				85AC0EC82A0FDC5800A00992 /* Models */,
 				85AC0EC42A0FDB3600A00992 /* Scenes */,
-				85EACBCD2953842C009BEE15 /* Request */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -357,13 +356,6 @@
 				85EACBCB295383CE009BEE15 /* HomeTalbleViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		85EACBCD2953842C009BEE15 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		85EACBE02954BA97009BEE15 /* Details */ = {

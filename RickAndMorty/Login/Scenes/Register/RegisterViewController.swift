@@ -28,7 +28,6 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSignUpButton()
-        setupLoginButton()
     }
     
     private func setupSignUpButton() {
@@ -70,14 +69,6 @@ class RegisterViewController: UIViewController {
                 controller: self
             )
         }
-    }
-    
-    private func setupLoginButton() {
-        containerView.loginButton.addTarget(
-            self,
-            action: #selector(loginButtonTarget),
-            for: .touchUpInside
-        )
     }
     
     @objc func loginButtonTarget() {
